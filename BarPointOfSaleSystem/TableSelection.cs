@@ -27,59 +27,147 @@ namespace BarPointOfSaleSystem
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void TableSelectionClick(object sender, EventArgs e)
         {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            var menu = new Menu();
+            menu.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void TableSelectionMouseHover(object sender, EventArgs e)
         {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            if (sender == Table1PictureBox)
+            {
+                Table1PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table2PictureBox)
+            {
+                Table2PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table3PictureBox)
+            {
+                Table3PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table4PictureBox)
+            {
+                Table4PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table5PictureBox)
+            {
+                Table5PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table6PictureBox)
+            {
+                Table6PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table7PictureBox)
+            {
+                Table7PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table8PictureBox)
+            {
+                Table8PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == Table9PictureBox)
+            {
+                Table9PictureBox.Image = Properties.Resources.TableActive;
+            }
+
+            else if (sender == BarStool1PictureBox)
+            {
+                BarStool1PictureBox.Image = Properties.Resources.BarStoolActive;
+            }
+
+            else if (sender == BarStool2PictureBox)
+            {
+                BarStool2PictureBox.Image = Properties.Resources.BarStoolActive;
+            }
+
+            else if (sender == BarStool3PictureBox)
+            {
+                BarStool3PictureBox.Image = Properties.Resources.BarStoolActive;
+            }
+
+            else if (sender == BarStool4PictureBox)
+            {
+                BarStool4PictureBox.Image = Properties.Resources.BarStoolActive;
+            }
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void TableSelcetionMouseLeave(object sender, EventArgs e)
         {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            if (sender == Table1PictureBox)
+            {
+                Table1PictureBox.Image = Properties.Resources.TableInActive;
+            }
+            else if (sender == Table2PictureBox)
+            {
+                Table2PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        }
+            else if (sender == Table3PictureBox)
+            {
+                Table3PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            else if (sender == Table4PictureBox)
+            {
+                Table4PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        }
+            else if (sender == Table5PictureBox)
+            {
+                Table5PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            else if (sender == Table6PictureBox)
+            {
+                Table6PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        }
+            else if (sender == Table7PictureBox)
+            {
+                Table7PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            else if (sender == Table8PictureBox)
+            {
+                Table8PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        }
+            else if (sender == Table9PictureBox)
+            {
+                Table9PictureBox.Image = Properties.Resources.TableInActive;
+            }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            var Menu = new Menu();
-            Hide();
-            Menu.Show();
+            else if (sender == BarStool1PictureBox)
+            {
+                BarStool1PictureBox.Image = Properties.Resources.BarStoolInActive;
+            }
 
+            else if (sender == BarStool2PictureBox)
+            {
+                BarStool2PictureBox.Image = Properties.Resources.BarStoolInActive;
+            }
+
+            else if (sender == BarStool3PictureBox)
+            {
+                BarStool3PictureBox.Image = Properties.Resources.BarStoolInActive;
+            }
+
+            else if (sender == BarStool4PictureBox)
+            {
+                BarStool4PictureBox.Image = Properties.Resources.BarStoolInActive;
+            }
         }
     }
 }

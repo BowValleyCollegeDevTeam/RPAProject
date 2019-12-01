@@ -122,5 +122,20 @@
   <ItemGroup>
     <None Include="Resources\TableIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarSideIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarStoolActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarStoolInActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TableActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TableInActive.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

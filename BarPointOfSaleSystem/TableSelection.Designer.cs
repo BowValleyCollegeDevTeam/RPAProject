@@ -28,92 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Table9PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table6PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table8PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table3PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table7PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table5PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table4PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table2PictureBox = new System.Windows.Forms.PictureBox();
+            this.Table1PictureBox = new System.Windows.Forms.PictureBox();
+            this.BarStool4PictureBox = new System.Windows.Forms.PictureBox();
+            this.BarStool3PictureBox = new System.Windows.Forms.PictureBox();
+            this.BarStool2PictureBox = new System.Windows.Forms.PictureBox();
+            this.BarStool1PictureBox = new System.Windows.Forms.PictureBox();
+            this.BarSidePictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Table9PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table6PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table8PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table3PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table7PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table5PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table4PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table1PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool4PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool3PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool2PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool1PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarSidePictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(181, 166);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 81);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(529, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 81);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(913, 156);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 81);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(377, 352);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(92, 81);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(734, 352);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 81);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(181, 519);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 81);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(913, 519);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(92, 81);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label1
             // 
@@ -125,38 +69,247 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Select A Table";
             // 
+            // Table9PictureBox
+            // 
+            this.Table9PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table9PictureBox.Location = new System.Drawing.Point(393, 524);
+            this.Table9PictureBox.Name = "Table9PictureBox";
+            this.Table9PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table9PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table9PictureBox.TabIndex = 21;
+            this.Table9PictureBox.TabStop = false;
+            this.Table9PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table9PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table9PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table6PictureBox
+            // 
+            this.Table6PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table6PictureBox.Location = new System.Drawing.Point(393, 305);
+            this.Table6PictureBox.Name = "Table6PictureBox";
+            this.Table6PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table6PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table6PictureBox.TabIndex = 20;
+            this.Table6PictureBox.TabStop = false;
+            this.Table6PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table6PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table6PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table8PictureBox
+            // 
+            this.Table8PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table8PictureBox.Location = new System.Drawing.Point(222, 524);
+            this.Table8PictureBox.Name = "Table8PictureBox";
+            this.Table8PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table8PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table8PictureBox.TabIndex = 19;
+            this.Table8PictureBox.TabStop = false;
+            this.Table8PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table8PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table8PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table3PictureBox
+            // 
+            this.Table3PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table3PictureBox.Location = new System.Drawing.Point(393, 104);
+            this.Table3PictureBox.Name = "Table3PictureBox";
+            this.Table3PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table3PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table3PictureBox.TabIndex = 18;
+            this.Table3PictureBox.TabStop = false;
+            this.Table3PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table3PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table3PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table7PictureBox
+            // 
+            this.Table7PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table7PictureBox.Location = new System.Drawing.Point(38, 524);
+            this.Table7PictureBox.Name = "Table7PictureBox";
+            this.Table7PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table7PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table7PictureBox.TabIndex = 17;
+            this.Table7PictureBox.TabStop = false;
+            this.Table7PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table7PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table7PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table5PictureBox
+            // 
+            this.Table5PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table5PictureBox.Location = new System.Drawing.Point(222, 305);
+            this.Table5PictureBox.Name = "Table5PictureBox";
+            this.Table5PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table5PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table5PictureBox.TabIndex = 16;
+            this.Table5PictureBox.TabStop = false;
+            this.Table5PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table5PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table5PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table4PictureBox
+            // 
+            this.Table4PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table4PictureBox.Location = new System.Drawing.Point(38, 305);
+            this.Table4PictureBox.Name = "Table4PictureBox";
+            this.Table4PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table4PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table4PictureBox.TabIndex = 15;
+            this.Table4PictureBox.TabStop = false;
+            this.Table4PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table4PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table4PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table2PictureBox
+            // 
+            this.Table2PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table2PictureBox.Location = new System.Drawing.Point(222, 104);
+            this.Table2PictureBox.Name = "Table2PictureBox";
+            this.Table2PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table2PictureBox.TabIndex = 14;
+            this.Table2PictureBox.TabStop = false;
+            this.Table2PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table2PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table2PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // Table1PictureBox
+            // 
+            this.Table1PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
+            this.Table1PictureBox.Location = new System.Drawing.Point(29, 104);
+            this.Table1PictureBox.Name = "Table1PictureBox";
+            this.Table1PictureBox.Size = new System.Drawing.Size(116, 108);
+            this.Table1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Table1PictureBox.TabIndex = 13;
+            this.Table1PictureBox.TabStop = false;
+            this.Table1PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.Table1PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.Table1PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // BarStool4PictureBox
+            // 
+            this.BarStool4PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.BarStoolInActive;
+            this.BarStool4PictureBox.Location = new System.Drawing.Point(669, 593);
+            this.BarStool4PictureBox.Name = "BarStool4PictureBox";
+            this.BarStool4PictureBox.Size = new System.Drawing.Size(83, 71);
+            this.BarStool4PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BarStool4PictureBox.TabIndex = 12;
+            this.BarStool4PictureBox.TabStop = false;
+            this.BarStool4PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.BarStool4PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.BarStool4PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // BarStool3PictureBox
+            // 
+            this.BarStool3PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.BarStoolInActive;
+            this.BarStool3PictureBox.Location = new System.Drawing.Point(669, 497);
+            this.BarStool3PictureBox.Name = "BarStool3PictureBox";
+            this.BarStool3PictureBox.Size = new System.Drawing.Size(83, 71);
+            this.BarStool3PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BarStool3PictureBox.TabIndex = 11;
+            this.BarStool3PictureBox.TabStop = false;
+            this.BarStool3PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.BarStool3PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.BarStool3PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // BarStool2PictureBox
+            // 
+            this.BarStool2PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.BarStoolInActive;
+            this.BarStool2PictureBox.Location = new System.Drawing.Point(669, 400);
+            this.BarStool2PictureBox.Name = "BarStool2PictureBox";
+            this.BarStool2PictureBox.Size = new System.Drawing.Size(83, 71);
+            this.BarStool2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BarStool2PictureBox.TabIndex = 10;
+            this.BarStool2PictureBox.TabStop = false;
+            this.BarStool2PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.BarStool2PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.BarStool2PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // BarStool1PictureBox
+            // 
+            this.BarStool1PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.BarStoolInActive;
+            this.BarStool1PictureBox.Location = new System.Drawing.Point(669, 305);
+            this.BarStool1PictureBox.Name = "BarStool1PictureBox";
+            this.BarStool1PictureBox.Size = new System.Drawing.Size(83, 71);
+            this.BarStool1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BarStool1PictureBox.TabIndex = 9;
+            this.BarStool1PictureBox.TabStop = false;
+            this.BarStool1PictureBox.Click += new System.EventHandler(this.TableSelectionClick);
+            this.BarStool1PictureBox.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.BarStool1PictureBox.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            // 
+            // BarSidePictureBox
+            // 
+            this.BarSidePictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.BarSideIcon;
+            this.BarSidePictureBox.Location = new System.Drawing.Point(768, 305);
+            this.BarSidePictureBox.Name = "BarSidePictureBox";
+            this.BarSidePictureBox.Size = new System.Drawing.Size(272, 370);
+            this.BarSidePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BarSidePictureBox.TabIndex = 8;
+            this.BarSidePictureBox.TabStop = false;
+            // 
             // TableSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 687);
+            this.ClientSize = new System.Drawing.Size(1052, 687);
+            this.Controls.Add(this.Table9PictureBox);
+            this.Controls.Add(this.Table6PictureBox);
+            this.Controls.Add(this.Table8PictureBox);
+            this.Controls.Add(this.Table3PictureBox);
+            this.Controls.Add(this.Table7PictureBox);
+            this.Controls.Add(this.Table5PictureBox);
+            this.Controls.Add(this.Table4PictureBox);
+            this.Controls.Add(this.Table2PictureBox);
+            this.Controls.Add(this.Table1PictureBox);
+            this.Controls.Add(this.BarStool4PictureBox);
+            this.Controls.Add(this.BarStool3PictureBox);
+            this.Controls.Add(this.BarStool2PictureBox);
+            this.Controls.Add(this.BarStool1PictureBox);
+            this.Controls.Add(this.BarSidePictureBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "TableSelection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Selection";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TableSelectionClosing);
             this.Load += new System.EventHandler(this.TableSelection_Load);
+            this.Click += new System.EventHandler(this.TableSelectionClick);
+            this.MouseLeave += new System.EventHandler(this.TableSelcetionMouseLeave);
+            this.MouseHover += new System.EventHandler(this.TableSelectionMouseHover);
+            ((System.ComponentModel.ISupportInitialize)(this.Table9PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table6PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table8PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table3PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table7PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table5PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table4PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table1PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool4PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool3PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarStool1PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarSidePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox BarSidePictureBox;
+        private System.Windows.Forms.PictureBox BarStool1PictureBox;
+        private System.Windows.Forms.PictureBox BarStool2PictureBox;
+        private System.Windows.Forms.PictureBox BarStool3PictureBox;
+        private System.Windows.Forms.PictureBox BarStool4PictureBox;
+        private System.Windows.Forms.PictureBox Table1PictureBox;
+        private System.Windows.Forms.PictureBox Table2PictureBox;
+        private System.Windows.Forms.PictureBox Table4PictureBox;
+        private System.Windows.Forms.PictureBox Table5PictureBox;
+        private System.Windows.Forms.PictureBox Table7PictureBox;
+        private System.Windows.Forms.PictureBox Table3PictureBox;
+        private System.Windows.Forms.PictureBox Table8PictureBox;
+        private System.Windows.Forms.PictureBox Table6PictureBox;
+        private System.Windows.Forms.PictureBox Table9PictureBox;
     }
 }
