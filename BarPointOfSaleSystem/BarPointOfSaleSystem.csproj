@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrinksBtns.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrinksBtns.Designer.cs">
+      <DependentUpon>DrinksBtns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodBtns.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodBtns.Designer.cs">
+      <DependentUpon>FoodBtns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +78,15 @@
     <Compile Include="TableSelection.Designer.cs">
       <DependentUpon>TableSelection.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DrinksBtns.resx">
+      <DependentUpon>DrinksBtns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodBtns.resx">
+      <DependentUpon>FoodBtns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
