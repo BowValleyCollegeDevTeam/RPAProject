@@ -12,9 +12,16 @@ namespace BarPointOfSaleSystem
 {
     public partial class TableSelection : Form
     {
+
         public TableSelection()
         {
             InitializeComponent();
+        }
+
+        private void FormCenterToScreen()
+        {
+            //Repositions The Form To The Center Of The Screen With The New Width.
+            Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (Size.Height / 2));
         }
 
         private void TableSelection_Load(object sender, EventArgs e)
@@ -24,15 +31,27 @@ namespace BarPointOfSaleSystem
 
         private void TableSelectionClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            var StaffLogin = new StaffLogin();
+            this.Hide();
+            StaffLogin.Show();
         }
 
         private void TableSelectionClick(object sender, EventArgs e)
         {
-            var menu = new Menu();
-            menu.Show();
-        }
+            //Changes The Width Of The Form When A Table Is Selected
+            Width = 1500;
+            FormCenterToScreen();
 
+            Panel TableOrderMenuPanel = new Panel();
+            TableOrderMenuPanel.Width = 300;
+            TableOrderMenuPanel.Dock = DockStyle.Right;
+
+            this.Controls.Add(TableOrderMenuPanel);
+
+            var tableOrderMainMenu = new TableOrderMainMenu();
+            tableOrderMainMenu.Dock = DockStyle.Fill;
+            TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+        }
 
         private void TableSelectionMouseHover(object sender, EventArgs e)
         {

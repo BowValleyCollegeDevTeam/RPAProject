@@ -86,6 +86,7 @@
             this.Button7.Text = "7";
             this.Button7.UseVisualStyleBackColor = true;
             this.Button7.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button8
             // 
@@ -96,6 +97,7 @@
             this.Button8.Text = "8";
             this.Button8.UseVisualStyleBackColor = true;
             this.Button8.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button9
             // 
@@ -106,6 +108,7 @@
             this.Button9.Text = "9";
             this.Button9.UseVisualStyleBackColor = true;
             this.Button9.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button4
             // 
@@ -116,6 +119,7 @@
             this.Button4.Text = "4";
             this.Button4.UseVisualStyleBackColor = true;
             this.Button4.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button5
             // 
@@ -126,6 +130,7 @@
             this.Button5.Text = "5";
             this.Button5.UseVisualStyleBackColor = true;
             this.Button5.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button6
             // 
@@ -136,6 +141,7 @@
             this.Button6.Text = "6";
             this.Button6.UseVisualStyleBackColor = true;
             this.Button6.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button1
             // 
@@ -146,6 +152,7 @@
             this.Button1.Text = "1";
             this.Button1.UseVisualStyleBackColor = true;
             this.Button1.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button2
             // 
@@ -156,6 +163,7 @@
             this.Button2.Text = "2";
             this.Button2.UseVisualStyleBackColor = true;
             this.Button2.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button3
             // 
@@ -166,6 +174,7 @@
             this.Button3.Text = "3";
             this.Button3.UseVisualStyleBackColor = true;
             this.Button3.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // DeleteButton
             // 
@@ -176,6 +185,7 @@
             this.DeleteButton.Text = "DEL";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.DeleteButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // Button0
             // 
@@ -186,16 +196,18 @@
             this.Button0.Text = "0";
             this.Button0.UseVisualStyleBackColor = true;
             this.Button0.Click += new System.EventHandler(this.PasscodeButtonClick);
+            this.Button0.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // EnterButton
             // 
             this.EnterButton.Location = new System.Drawing.Point(422, 344);
             this.EnterButton.Name = "EnterButton";
             this.EnterButton.Size = new System.Drawing.Size(91, 75);
-            this.EnterButton.TabIndex = 15;
+            this.EnterButton.TabIndex = 0;
             this.EnterButton.Text = "Enter";
             this.EnterButton.UseVisualStyleBackColor = true;
             this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
+            this.EnterButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
             // StaffLogin
             // 

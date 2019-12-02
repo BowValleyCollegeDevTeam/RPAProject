@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.Table9PictureBox = new System.Windows.Forms.PictureBox();
             this.Table6PictureBox = new System.Windows.Forms.PictureBox();
             this.Table8PictureBox = new System.Windows.Forms.PictureBox();
@@ -58,16 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BarStool1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BarSidePictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(449, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 31);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Select A Table";
             // 
             // Table9PictureBox
             // 
@@ -267,7 +256,6 @@
             this.Controls.Add(this.BarStool2PictureBox);
             this.Controls.Add(this.BarStool1PictureBox);
             this.Controls.Add(this.BarSidePictureBox);
-            this.Controls.Add(this.label1);
             this.Name = "TableSelection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Selection";
@@ -291,12 +279,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.BarStool1PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BarSidePictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox BarSidePictureBox;
         private System.Windows.Forms.PictureBox BarStool1PictureBox;
         private System.Windows.Forms.PictureBox BarStool2PictureBox;
