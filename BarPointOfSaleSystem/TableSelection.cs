@@ -45,12 +45,14 @@ namespace BarPointOfSaleSystem
             Panel TableOrderMenuPanel = new Panel();
             TableOrderMenuPanel.Width = 300;
             TableOrderMenuPanel.Dock = DockStyle.Right;
+            TableOrderMenuPanel.BorderStyle = BorderStyle.Fixed3D;
 
             this.Controls.Add(TableOrderMenuPanel);
 
             var tableOrderMainMenu = new TableOrderMainMenu();
             tableOrderMainMenu.Dock = DockStyle.Fill;
             TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+
         }
 
         private void TableSelectionMouseHover(object sender, EventArgs e)

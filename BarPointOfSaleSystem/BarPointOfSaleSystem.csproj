@@ -78,6 +78,7 @@
     <Compile Include="TableOrderMainMenu.Designer.cs">
       <DependentUpon>TableOrderMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableOrderMainMenuClass.cs" />
     <Compile Include="TableSelection.cs">
       <SubType>Form</SubType>
     </Compile>
