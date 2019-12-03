@@ -55,7 +55,7 @@
             // 
             // AddOrderBTN
             // 
-            this.AddOrderBTN.Location = new System.Drawing.Point(59, 109);
+            this.AddOrderBTN.Location = new System.Drawing.Point(59, 114);
             this.AddOrderBTN.Name = "AddOrderBTN";
             this.AddOrderBTN.Size = new System.Drawing.Size(106, 23);
             this.AddOrderBTN.TabIndex = 22;
