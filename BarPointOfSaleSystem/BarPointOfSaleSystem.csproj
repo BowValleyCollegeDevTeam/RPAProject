@@ -63,6 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarPOSSystemDataDataSet.cs">
+      <DependentUpon>BarPOSSystemDataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BarPOSSystemDataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

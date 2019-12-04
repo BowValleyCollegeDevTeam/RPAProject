@@ -23,10 +23,11 @@ namespace BarPointOfSaleSystem
 
         private void StaffLogin_Load(object sender, EventArgs e)
         {
-            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSConnectionString"].ConnectionString;
+            
         }
         public void getEmployeePinLogin()
         {
+            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
             string pin = StaffPasscodeInputBox.Text;
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
             using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {pin}", myConnection))
@@ -36,6 +37,7 @@ namespace BarPointOfSaleSystem
                 myConnection.Open();
                 employeePin.Fill(userPin);
                 myConnection.Close();
+                bool correct = false;
                 for (int row = 0; row < userPin.Rows.Count; row++)
                 {
                     if (!DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
@@ -46,32 +48,20 @@ namespace BarPointOfSaleSystem
                             var TableSelection = new TableSelection();
                             Hide();
                             TableSelection.Show();
+                            correct = true;
                         }
 
                     }
-                    else if (DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
-                    {
-                        DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (PasscodeError == DialogResult.OK)
-                        {
-                            StaffPasscodeInputBox.Text = "";
-                        }
-                    }
 
-                }
-                for (int row = 0; row < userPin.Rows.Count; row++)
+                } 
+                if (correct == false)
                 {
-                    if (DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
+                    DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (PasscodeError == DialogResult.OK)
                     {
-                        DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (PasscodeError == DialogResult.OK)
-                        {
-                            StaffPasscodeInputBox.Text = "";
-                        }
+                        StaffPasscodeInputBox.Text = "";
                     }
                 }
-
-
 
             }
         }

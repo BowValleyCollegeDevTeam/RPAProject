@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PasscodeLabel = new System.Windows.Forms.Label();
             this.StaffPasscodeInputBox = new System.Windows.Forms.TextBox();
             this.EmployeePasscodeLabel = new System.Windows.Forms.Label();
@@ -43,6 +44,12 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.Button0 = new System.Windows.Forms.Button();
             this.EnterButton = new System.Windows.Forms.Button();
+            this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.barPOSSystemDataDataSet1 = new BarPointOfSaleSystem.BarPOSSystemDataDataSet();
+            this.employeesTableAdapter1 = new BarPointOfSaleSystem.BarPOSSystemDataDataSetTableAdapters.EmployeesTableAdapter();
+            this.tableAdapterManager1 = new BarPointOfSaleSystem.BarPOSSystemDataDataSetTableAdapters.TableAdapterManager();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // PasscodeLabel
@@ -209,6 +216,26 @@
             this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
             this.EnterButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
+            // tableBindingSource
+            // 
+            this.tableBindingSource.DataMember = "Employees";
+            this.tableBindingSource.DataSource = this.barPOSSystemDataDataSet1;
+            // 
+            // barPOSSystemDataDataSet1
+            // 
+            this.barPOSSystemDataDataSet1.DataSetName = "BarPOSSystemDataDataSet";
+            this.barPOSSystemDataDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesTableAdapter1
+            // 
+            this.employeesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.EmployeesTableAdapter = this.employeesTableAdapter1;
+            this.tableAdapterManager1.UpdateOrder = BarPointOfSaleSystem.BarPOSSystemDataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // StaffLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +261,8 @@
             this.Text = "Staff Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StaffSignClosing);
             this.Click += new System.EventHandler(this.PasscodeButtonClick);
+            ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +285,10 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button Button0;
         private System.Windows.Forms.Button EnterButton;
+        private BarPOSSystemDataDataSet barPOSSystemDataDataSet1;
+        private System.Windows.Forms.BindingSource tableBindingSource;
+        private BarPOSSystemDataDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter1;
+        private BarPOSSystemDataDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }
 
