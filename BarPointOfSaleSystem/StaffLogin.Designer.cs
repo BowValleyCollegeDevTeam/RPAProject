@@ -43,6 +43,8 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.Button0 = new System.Windows.Forms.Button();
             this.EnterButton = new System.Windows.Forms.Button();
+            this.barPOSDataSet1 = new BarPointOfSaleSystem.BarPOSDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.barPOSDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // PasscodeLabel
@@ -209,6 +211,11 @@
             this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
             this.EnterButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NumPadKeyDown);
             // 
+            // barPOSDataSet1
+            // 
+            this.barPOSDataSet1.DataSetName = "BarPOSDataSet";
+            this.barPOSDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // StaffLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +241,7 @@
             this.Text = "Staff Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StaffSignClosing);
             this.Click += new System.EventHandler(this.PasscodeButtonClick);
+            ((System.ComponentModel.ISupportInitialize)(this.barPOSDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +264,7 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button Button0;
         private System.Windows.Forms.Button EnterButton;
+        private BarPOSDataSet barPOSDataSet1;
     }
 }
 
