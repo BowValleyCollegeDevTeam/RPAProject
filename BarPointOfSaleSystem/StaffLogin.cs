@@ -7,14 +7,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace BarPointOfSaleSystem
 {
     public partial class StaffLogin : Form
     {
+        private string dbConnectionString;
+
         public StaffLogin()
         {
             InitializeComponent();
+        }
+
+        private void StaffLogin_Load(object sender, EventArgs e)
+        {
+            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSConnectionString"].ConnectionString;
+        }
+        public void getEmployeePinLogin()
+        {
+            string pin = StaffPasscodeInputBox.Text;
+            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {pin}", myConnection))
+            {
+                DataTable userPin = new DataTable();
+              
+                myConnection.Open();
+                employeePin.Fill(userPin);
+                myConnection.Close();
+                for (int row = 0; row < userPin.Rows.Count; row++)
+                {
+                    if (!DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
+                    {
+                        int dpin = (int)userPin.Rows[row]["PIN"];
+                        if (pin == dpin.ToString())
+                        {
+                            var TableSelection = new TableSelection();
+                            Hide();
+                            TableSelection.Show();
+                        }
+
+                    }
+                    else if (DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
+                    {
+                        DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (PasscodeError == DialogResult.OK)
+                        {
+                            StaffPasscodeInputBox.Text = "";
+                        }
+                    }
+
+                }
+                for (int row = 0; row < userPin.Rows.Count; row++)
+                {
+                    if (DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
+                    {
+                        DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (PasscodeError == DialogResult.OK)
+                        {
+                            StaffPasscodeInputBox.Text = "";
+                        }
+                    }
+                }
+
+
+
+            }
         }
 
         private void PasscodeButtonClick(object sender, EventArgs e)
@@ -41,21 +100,23 @@ namespace BarPointOfSaleSystem
 
         private void EnterButton_Click(object sender, EventArgs e)
         {
-            if (StaffPasscodeInputBox.Text == "1234")
-            {
-                var TableSelection = new TableSelection();
-                Hide();
-                TableSelection.Show();
-            }
+            getEmployeePinLogin();
 
-            else
-            {
-                DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (PasscodeError == DialogResult.OK)
-                {
-                    StaffPasscodeInputBox.Text = "";
-                }
-            }
+            //if (StaffPasscodeInputBox.Text == "1234")
+            //{
+            //    var TableSelection = new TableSelection();
+            //    Hide();
+            //    TableSelection.Show();
+            //}
+
+            //else
+            //{
+            //    DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    if (PasscodeError == DialogResult.OK)
+            //    {
+            //        StaffPasscodeInputBox.Text = "";
+            //    }
+            //}
 
         }
 
