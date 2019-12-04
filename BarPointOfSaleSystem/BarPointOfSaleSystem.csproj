@@ -63,6 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarPOSSystemDataDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarPOSSystemDataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DrinksBtns.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,11 +85,6 @@
     </Compile>
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="POSDataSetDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>POSDataSetDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="StaffLogin.cs">
       <SubType>Form</SubType>
@@ -135,16 +135,16 @@
     <EmbeddedResource Include="TableSelection.resx">
       <DependentUpon>TableSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="POSDataSetDataSet.xsc">
-      <DependentUpon>POSDataSetDataSet.xsd</DependentUpon>
+    <None Include="BarPOSSystemDataDataSet.xsc">
+      <DependentUpon>BarPOSSystemDataDataSet.xsd</DependentUpon>
     </None>
-    <None Include="POSDataSetDataSet.xsd">
+    <None Include="BarPOSSystemDataDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>POSDataSetDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>BarPOSSystemDataDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="POSDataSetDataSet.xss">
-      <DependentUpon>POSDataSetDataSet.xsd</DependentUpon>
+    <None Include="BarPOSSystemDataDataSet.xss">
+      <DependentUpon>BarPOSSystemDataDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -193,12 +193,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="POSDataSet.mdf">
+    <Content Include="BarPOSSystemData.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="POSDataSet_log.ldf">
+    <Content Include="BarPOSSystemData_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>POSDataSet.mdf</DependentUpon>
+      <DependentUpon>BarPOSSystemData.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

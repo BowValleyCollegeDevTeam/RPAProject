@@ -44,5 +44,16 @@ namespace BarPointOfSaleSystem.Properties {
                 return ((string)(this["POSDataSetConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\BarPOSSystemD" +
+            "ata.mdf;Integrated Security=True")]
+        public string BarPOSSystemDataConnectionString {
+            get {
+                return ((string)(this["BarPOSSystemDataConnectionString"]));
+            }
+        }
     }
 }
