@@ -63,11 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarPOSDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BarPOSDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DrinksBtns.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,17 +130,6 @@
     <EmbeddedResource Include="TableSelection.resx">
       <DependentUpon>TableSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BarPOSDataSet.xsc">
-      <DependentUpon>BarPOSDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BarPOSDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BarPOSDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BarPOSDataSet.xss">
-      <DependentUpon>BarPOSDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,15 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TableInActive.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BarPOS.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BarPOS_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BarPOS.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
