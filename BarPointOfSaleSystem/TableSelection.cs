@@ -15,6 +15,9 @@ namespace BarPointOfSaleSystem
     public partial class TableSelection : Form
     {
         private string dbConnectionString;
+        private Label TableName = new Label();
+
+
         public TableSelection()
         {
             InitializeComponent();
@@ -77,151 +80,179 @@ namespace BarPointOfSaleSystem
             TableOrderMenuPanel.Width = 300;
             TableOrderMenuPanel.Dock = DockStyle.Right;
             TableOrderMenuPanel.BorderStyle = BorderStyle.Fixed3D;
-
-            this.Controls.Add(TableOrderMenuPanel);
-
             var tableOrderMainMenu = new TableOrderMainMenu();
             tableOrderMainMenu.Dock = DockStyle.Fill;
-            TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+
+
             
+            TableName.Dock = DockStyle.Top;
 
+            if (sender == Table1)
+            {
+                
+                if (TableName.Text == "")
+                {
+                    this.Controls.Add(TableOrderMenuPanel);
+                    TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+                    TableName.Text = Table1.Name;
+                    tableOrderMainMenu.Controls.Add(TableName);
+                }
 
+                else if (TableName.Text != "")
+                {
+                    try
+                    {
+                        this.Controls.RemoveAt(15);
+                        TableName.Text = "";
+                    }
+
+                    catch
+                    {
+
+                    }
+                    
+                }
+            }
+            
+            
+            
+         
         }
  
 
         private void TableSelectionMouseHover(object sender, EventArgs e)
         {
-            if (sender == Table1PictureBox)
+            if (sender == Table1)
             {
-                Table1PictureBox.Image = Properties.Resources.TableActive;
+                Table1.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table2PictureBox)
+            else if (sender == Table2)
             {
-                Table2PictureBox.Image = Properties.Resources.TableActive;
+                Table2.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table3PictureBox)
+            else if (sender == Table3)
             {
-                Table3PictureBox.Image = Properties.Resources.TableActive;
+                Table3.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table4PictureBox)
+            else if (sender == Table4)
             {
-                Table4PictureBox.Image = Properties.Resources.TableActive;
+                Table4.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table5PictureBox)
+            else if (sender == Table5)
             {
-                Table5PictureBox.Image = Properties.Resources.TableActive;
+                Table5.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table6PictureBox)
+            else if (sender == Table6)
             {
-                Table6PictureBox.Image = Properties.Resources.TableActive;
+                Table6.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table7PictureBox)
+            else if (sender == Table7)
             {
-                Table7PictureBox.Image = Properties.Resources.TableActive;
+                Table7.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table8PictureBox)
+            else if (sender == Table8)
             {
-                Table8PictureBox.Image = Properties.Resources.TableActive;
+                Table8.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == Table9PictureBox)
+            else if (sender == Table9)
             {
-                Table9PictureBox.Image = Properties.Resources.TableActive;
+                Table9.Image = Properties.Resources.TableActive;
             }
 
-            else if (sender == BarStool1PictureBox)
+            else if (sender == BarStool1)
             {
-                BarStool1PictureBox.Image = Properties.Resources.BarStoolActive;
+                BarStool1.Image = Properties.Resources.BarStoolActive;
             }
 
-            else if (sender == BarStool2PictureBox)
+            else if (sender == BarStool2)
             {
-                BarStool2PictureBox.Image = Properties.Resources.BarStoolActive;
+                BarStool2.Image = Properties.Resources.BarStoolActive;
             }
 
-            else if (sender == BarStool3PictureBox)
+            else if (sender == BarStool3)
             {
-                BarStool3PictureBox.Image = Properties.Resources.BarStoolActive;
+                BarStool3.Image = Properties.Resources.BarStoolActive;
             }
 
-            else if (sender == BarStool4PictureBox)
+            else if (sender == BarStool4)
             {
-                BarStool4PictureBox.Image = Properties.Resources.BarStoolActive;
+                BarStool4.Image = Properties.Resources.BarStoolActive;
             }
 
         }
 
         private void TableSelcetionMouseLeave(object sender, EventArgs e)
         {
-            if (sender == Table1PictureBox)
+            if (sender == Table1)
             {
-                Table1PictureBox.Image = Properties.Resources.TableInActive;
+                Table1.Image = Properties.Resources.TableInActive;
             }
-            else if (sender == Table2PictureBox)
+            else if (sender == Table2)
             {
-                Table2PictureBox.Image = Properties.Resources.TableInActive;
-            }
-
-            else if (sender == Table3PictureBox)
-            {
-                Table3PictureBox.Image = Properties.Resources.TableInActive;
+                Table2.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == Table4PictureBox)
+            else if (sender == Table3)
             {
-                Table4PictureBox.Image = Properties.Resources.TableInActive;
+                Table3.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == Table5PictureBox)
+            else if (sender == Table4)
             {
-                Table5PictureBox.Image = Properties.Resources.TableInActive;
+                Table4.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == Table6PictureBox)
+            else if (sender == Table5)
             {
-                Table6PictureBox.Image = Properties.Resources.TableInActive;
+                Table5.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == Table7PictureBox)
+            else if (sender == Table6)
             {
-                Table7PictureBox.Image = Properties.Resources.TableInActive;
+                Table6.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == Table8PictureBox)
+            else if (sender == Table7)
             {
-                Table8PictureBox.Image = Properties.Resources.TableInActive;
+                Table7.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == Table9PictureBox)
+            else if (sender == Table8)
             {
-                Table9PictureBox.Image = Properties.Resources.TableInActive;
+                Table8.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == BarStool1PictureBox)
+            else if (sender == Table9)
             {
-                BarStool1PictureBox.Image = Properties.Resources.BarStoolInActive;
+                Table9.Image = Properties.Resources.TableInActive;
             }
 
-            else if (sender == BarStool2PictureBox)
+            else if (sender == BarStool1)
             {
-                BarStool2PictureBox.Image = Properties.Resources.BarStoolInActive;
+                BarStool1.Image = Properties.Resources.BarStoolInActive;
             }
 
-            else if (sender == BarStool3PictureBox)
+            else if (sender == BarStool2)
             {
-                BarStool3PictureBox.Image = Properties.Resources.BarStoolInActive;
+                BarStool2.Image = Properties.Resources.BarStoolInActive;
             }
 
-            else if (sender == BarStool4PictureBox)
+            else if (sender == BarStool3)
             {
-                BarStool4PictureBox.Image = Properties.Resources.BarStoolInActive;
+                BarStool3.Image = Properties.Resources.BarStoolInActive;
+            }
+
+            else if (sender == BarStool4)
+            {
+                BarStool4.Image = Properties.Resources.BarStoolInActive;
             }
         }
     }

@@ -16,5 +16,10 @@ namespace BarPointOfSaleSystem
         {
             InitializeComponent();
         }
+
+        private void TableOrderMainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

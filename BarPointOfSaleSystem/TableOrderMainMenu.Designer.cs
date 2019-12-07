@@ -28,21 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TableNumberLabel = new System.Windows.Forms.Label();
             this.AddCustBTN = new System.Windows.Forms.Button();
             this.AddOrderBTN = new System.Windows.Forms.Button();
             this.PrintBillBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // TableNumberLabel
-            // 
-            this.TableNumberLabel.AutoSize = true;
-            this.TableNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TableNumberLabel.Location = new System.Drawing.Point(5, 0);
-            this.TableNumberLabel.Name = "TableNumberLabel";
-            this.TableNumberLabel.Size = new System.Drawing.Size(233, 39);
-            this.TableNumberLabel.TabIndex = 20;
-            this.TableNumberLabel.Text = "Table Number";
             // 
             // AddCustBTN
             // 
@@ -78,16 +67,14 @@
             this.Controls.Add(this.PrintBillBTN);
             this.Controls.Add(this.AddOrderBTN);
             this.Controls.Add(this.AddCustBTN);
-            this.Controls.Add(this.TableNumberLabel);
             this.Name = "TableOrderMainMenu";
             this.Size = new System.Drawing.Size(243, 235);
+            this.Load += new System.EventHandler(this.TableOrderMainMenu_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label TableNumberLabel;
         private System.Windows.Forms.Button AddCustBTN;
         private System.Windows.Forms.Button AddOrderBTN;
         private System.Windows.Forms.Button PrintBillBTN;
