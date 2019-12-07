@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace BarPointOfSaleSystem
 {
     public partial class TableSelection : Form
     {
-
+        private string dbConnectionString;
         public TableSelection()
         {
             InitializeComponent();
@@ -26,6 +28,9 @@ namespace BarPointOfSaleSystem
 
         private void TableSelection_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'barPOSSystemDataDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
+            getTopBar();
 
         }
 
@@ -36,12 +41,37 @@ namespace BarPointOfSaleSystem
             StaffLogin.Show();
         }
 
+        public void getTopBar()
+        {
+            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            using (StaffLogin login = new StaffLogin())
+            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {login.pin}", myConnection))
+            {
+                DataTable userPin = new DataTable();
+
+                myConnection.Open();
+                employeePin.Fill(userPin);
+                myConnection.Close();
+                for (int row = 0; row < userPin.Rows.Count; row++)
+                {
+                    string FirstName = (string)userPin.Rows[row]["FName"];
+                    string LastName = (string)userPin.Rows[row]["LName"];
+                    this.topInfoBar1.StaffNameLabel.Text = "Name: " + FirstName + " " + LastName;
+
+                }
+
+
+
+            }
+        }
+
+
         private void TableSelectionClick(object sender, EventArgs e)
         {
             //Changes The Width Of The Form When A Table Is Selected
             Width = 1500;
             FormCenterToScreen();
-
             Panel TableOrderMenuPanel = new Panel();
             TableOrderMenuPanel.Width = 300;
             TableOrderMenuPanel.Dock = DockStyle.Right;
