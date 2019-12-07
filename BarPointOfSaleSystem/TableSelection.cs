@@ -29,7 +29,7 @@ namespace BarPointOfSaleSystem
         private void TableSelection_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'barPOSSystemDataDataSet.Employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
+            //this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
             getTopBar();
 
         }
@@ -69,6 +69,7 @@ namespace BarPointOfSaleSystem
 
         private void TableSelectionClick(object sender, EventArgs e)
         {
+            
             //Changes The Width Of The Form When A Table Is Selected
             Width = 1500;
             FormCenterToScreen();
@@ -82,8 +83,11 @@ namespace BarPointOfSaleSystem
             var tableOrderMainMenu = new TableOrderMainMenu();
             tableOrderMainMenu.Dock = DockStyle.Fill;
             TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+            
+
 
         }
+ 
 
         private void TableSelectionMouseHover(object sender, EventArgs e)
         {

@@ -94,7 +94,7 @@
             // Table8PictureBox
             // 
             this.Table8PictureBox.Image = global::BarPointOfSaleSystem.Properties.Resources.TableInActive;
-            this.Table8PictureBox.Location = new System.Drawing.Point(222, 524);
+            this.Table8PictureBox.Location = new System.Drawing.Point(232, 524);
             this.Table8PictureBox.Name = "Table8PictureBox";
             this.Table8PictureBox.Size = new System.Drawing.Size(116, 108);
             this.Table8PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
