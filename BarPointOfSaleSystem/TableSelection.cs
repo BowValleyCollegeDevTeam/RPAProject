@@ -15,7 +15,10 @@ namespace BarPointOfSaleSystem
     public partial class TableSelection : Form
     {
         private string dbConnectionString;
-        private Label TableName = new Label();
+
+
+        public Label TableName = new Label();
+
 
 
         public TableSelection()
@@ -80,43 +83,41 @@ namespace BarPointOfSaleSystem
             TableOrderMenuPanel.Width = 300;
             TableOrderMenuPanel.Dock = DockStyle.Right;
             TableOrderMenuPanel.BorderStyle = BorderStyle.Fixed3D;
+
             var tableOrderMainMenu = new TableOrderMainMenu();
             tableOrderMainMenu.Dock = DockStyle.Fill;
 
-
-            
             TableName.Dock = DockStyle.Top;
 
-            if (sender == Table1)
+            if (sender == Table1 && TableName.Text == "")
             {
-                
-                if (TableName.Text == "")
-                {
-                    this.Controls.Add(TableOrderMenuPanel);
-                    TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
-                    TableName.Text = Table1.Name;
-                    tableOrderMainMenu.Controls.Add(TableName);
-                }
-
-                else if (TableName.Text != "")
-                {
-                    try
-                    {
-                        this.Controls.RemoveAt(15);
-                        TableName.Text = "";
-                    }
-
-                    catch
-                    {
-
-                    }
-                    
-                }
+                this.Controls.Add(TableOrderMenuPanel);
+                TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+                TableName.Text = Table1.Name;
+                tableOrderMainMenu.Controls.Add(TableName);
             }
-            
-            
-            
-         
+
+            else if (sender == Table2 && TableName.Text == "")
+            {
+                this.Controls.Add(TableOrderMenuPanel);
+                TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
+                TableName.Text = Table2.Name;
+                tableOrderMainMenu.Controls.Add(TableName);
+            }
+
+            else
+            {
+                try
+                {
+                    this.Controls.RemoveAt(15);
+                    TableName.Text = "";
+                }
+
+                catch { }
+            }
+
+
+
         }
  
 
