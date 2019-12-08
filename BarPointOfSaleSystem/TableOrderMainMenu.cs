@@ -12,20 +12,16 @@ namespace BarPointOfSaleSystem
 {
     public partial class TableOrderMainMenu : UserControl
     {
+        
         public TableOrderMainMenu()
         {
             InitializeComponent();
+       
         }
 
         private void TableOrderMainMenu_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            TableSelection.ActiveForm.Controls.RemoveAt(15);
-            
         }
     }
 }
