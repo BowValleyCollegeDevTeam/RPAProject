@@ -15,6 +15,7 @@ namespace BarPointOfSaleSystem
         public TableOrderMainMenu()
         {
             InitializeComponent();
+
         }
     }
 }
