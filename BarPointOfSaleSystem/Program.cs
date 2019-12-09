@@ -16,7 +16,8 @@ namespace BarPointOfSaleSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StaffLogin());
+            //Application.Run(new StaffLogin());
+            Application.Run(new Menu());
         }
     }
 }
