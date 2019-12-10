@@ -52,6 +52,7 @@
             this.PrintBillBTN.TabIndex = 23;
             this.PrintBillBTN.Text = "Print Bill";
             this.PrintBillBTN.UseVisualStyleBackColor = true;
+            this.PrintBillBTN.Click += new System.EventHandler(this.PrintBillBTN_Click_1);
             // 
             // TableOrderMainMenu
             // 
