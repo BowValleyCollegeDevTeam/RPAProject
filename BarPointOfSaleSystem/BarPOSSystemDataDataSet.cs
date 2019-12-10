@@ -4,6 +4,9 @@
 
     partial class BarPOSSystemDataDataSet
     {
+        partial class MenuDataTable
+        {
+        }
     }
 }
 
