@@ -27,6 +27,7 @@ namespace BarPointOfSaleSystem
         private void AddOrderBTN_Click(object sender, EventArgs e)
         {
             new Menu().Show();
+
         }
 
 
