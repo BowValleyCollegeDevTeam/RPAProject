@@ -76,7 +76,6 @@
             this.TotalNumberLBL.Size = new System.Drawing.Size(66, 25);
             this.TotalNumberLBL.TabIndex = 3;
             this.TotalNumberLBL.Text = "65.50";
-            this.TotalNumberLBL.Click += new System.EventHandler(this.TotalNumberLBL_Click);
             // 
             // splitbillLBL
             // 
@@ -106,7 +105,6 @@
             this.TotalPerBillNumberLBL.Size = new System.Drawing.Size(139, 25);
             this.TotalPerBillNumberLBL.TabIndex = 7;
             this.TotalPerBillNumberLBL.Text = "Total Amount";
-            this.TotalPerBillNumberLBL.Click += new System.EventHandler(this.TotalPerBillNumberLBL_Click);
             // 
             // totalaftersplitLBL
             // 
