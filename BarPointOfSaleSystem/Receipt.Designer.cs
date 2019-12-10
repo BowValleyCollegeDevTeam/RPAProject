@@ -131,6 +131,7 @@
             this.Controls.Add(this.BillListBox);
             this.Name = "Receipt";
             this.Text = "Reciept";
+            this.Load += new System.EventHandler(this.Receipt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Billsplitways)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

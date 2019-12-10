@@ -36,5 +36,21 @@ namespace BarPointOfSaleSystem
             }
         }
 
+        private void Receipt_Load(object sender, EventArgs e)
+        {
+            GrabSelectedMenuItems();
+            TotalPerBillNumberLBL.Text = TotalNumberLBL.Text;
+            
+            
+        }
+
+        private void GrabSelectedMenuItems()
+        {
+            // go into the database and grab the selected items for the certain table number
+            var totalamount = 65.55 + 36.75;
+            totalamount = Math.Round(totalamount, 2);
+
+            TotalNumberLBL.Text = totalamount.ToString();
+        }
     }
 }
