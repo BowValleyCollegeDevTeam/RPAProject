@@ -34,16 +34,19 @@
             // 
             // AddOrderBTN
             // 
-            this.AddOrderBTN.Location = new System.Drawing.Point(59, 70);
+            this.AddOrderBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddOrderBTN.Location = new System.Drawing.Point(49, 31);
             this.AddOrderBTN.Name = "AddOrderBTN";
             this.AddOrderBTN.Size = new System.Drawing.Size(106, 23);
             this.AddOrderBTN.TabIndex = 22;
             this.AddOrderBTN.Text = "Add Order";
             this.AddOrderBTN.UseVisualStyleBackColor = true;
+            this.AddOrderBTN.Click += new System.EventHandler(this.AddOrderBTN_Click);
             // 
             // PrintBillBTN
             // 
-            this.PrintBillBTN.Location = new System.Drawing.Point(59, 99);
+            this.PrintBillBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.PrintBillBTN.Location = new System.Drawing.Point(49, 60);
             this.PrintBillBTN.Name = "PrintBillBTN";
             this.PrintBillBTN.Size = new System.Drawing.Size(106, 23);
             this.PrintBillBTN.TabIndex = 23;
@@ -57,7 +60,7 @@
             this.Controls.Add(this.PrintBillBTN);
             this.Controls.Add(this.AddOrderBTN);
             this.Name = "TableOrderMainMenu";
-            this.Size = new System.Drawing.Size(243, 235);
+            this.Size = new System.Drawing.Size(200, 235);
             this.Load += new System.EventHandler(this.TableOrderMainMenu_Load);
             this.ResumeLayout(false);
 

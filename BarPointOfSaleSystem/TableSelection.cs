@@ -76,7 +76,7 @@ namespace BarPointOfSaleSystem
             Width = 1500;
             FormCenterToScreen();
             Panel TableOrderMenuPanel = new Panel();
-            TableOrderMenuPanel.Width = 300;
+            TableOrderMenuPanel.Width = 200;
             TableOrderMenuPanel.Dock = DockStyle.Right;
             TableOrderMenuPanel.BorderStyle = BorderStyle.Fixed3D;
 
@@ -87,6 +87,7 @@ namespace BarPointOfSaleSystem
             TableOrderMenuPanel.Controls.Add(tableOrderMainMenu);
             TableName.Dock = DockStyle.Top;
             tableOrderMainMenu.Controls.Add(TableName);
+            TableName.TextAlign = ContentAlignment.TopCenter;
         }
         private void TableSelectionClick(object sender, EventArgs e)
         {
