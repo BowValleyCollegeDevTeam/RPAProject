@@ -16,5 +16,16 @@ namespace BarPointOfSaleSystem
         {
             InitializeComponent();
         }
+
+
+        private void AddOrderBTN_Click(object sender, EventArgs e)
+        {
+            new Menu().Show();
+        }
+
+        private void PrintBillBTN_Click(object sender, EventArgs e)
+        {
+            new Receipt().Show();
+        }
     }
 }
