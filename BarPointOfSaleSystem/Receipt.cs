@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace BarPointOfSaleSystem
 {
     public partial class Receipt : Form
     {
+        string dbconnectionstring;
         public Receipt()
         {
             InitializeComponent();
@@ -40,15 +43,31 @@ namespace BarPointOfSaleSystem
 
         private void Receipt_Load(object sender, EventArgs e)
         {
-            GrabSelectedMenuItems();
+            GrabOrder();
             TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;
             // sets the 2 totals the same until the bill spliter is used
             
             
         }
 
-        private void GrabSelectedMenuItems()
+        private void GrabOrder()
         {
+            dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
+            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT * FROM Orders", myconnection))
+            {
+                DataTable grabOrder = new DataTable();
+
+                myconnection.Open();
+                receipt.Fill(grabOrder);
+                myconnection.Close();
+
+                for(int i = 0; i < grabOrder.Rows.Count; i++)
+                {
+                    BillListBox.Items.Add(grabOrder);
+                }
+            }
+
             // go into the database and grab the selected items for the certain table number
             var totalamount = 65.55 + 36.75;
             totalamount = Math.Round(totalamount, 2);
