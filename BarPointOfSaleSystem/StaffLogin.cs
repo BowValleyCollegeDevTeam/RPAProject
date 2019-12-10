@@ -15,10 +15,16 @@ namespace BarPointOfSaleSystem
     public partial class StaffLogin : Form
     {
         private string dbConnectionString;
+        public static int dpin;
 
         public StaffLogin()
         {
             InitializeComponent();
+        }
+
+        public string pin
+        {
+            get { return dpin.ToString(); }
         }
 
         private void StaffLogin_Load(object sender, EventArgs e)
@@ -42,7 +48,7 @@ namespace BarPointOfSaleSystem
                 {
                     if (!DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
                     {
-                        int dpin = (int)userPin.Rows[row]["PIN"];
+                        dpin = (int)userPin.Rows[row]["PIN"];
                         if (pin == dpin.ToString())
                         {
                             var TableSelection = new TableSelection();
