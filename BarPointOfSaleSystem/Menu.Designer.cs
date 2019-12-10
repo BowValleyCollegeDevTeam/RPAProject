@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.barPOSSystemDataDataSet = new BarPointOfSaleSystem.BarPOSSystemDataDataSet();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet)).BeginInit();
             this.SuspendLayout();
@@ -60,28 +60,6 @@
             this.panel1.Size = new System.Drawing.Size(841, 155);
             this.panel1.TabIndex = 16;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(21, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 35);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Food";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(21, 313);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 35);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Drinks";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // panel2
             // 
             this.panel2.AutoScroll = true;
@@ -102,14 +80,34 @@
             this.barPOSSystemDataDataSet.DataSetName = "BarPOSSystemDataDataSet";
             this.barPOSSystemDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(16, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 29);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "FOOD";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 322);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 29);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "DRINKS";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 543);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "Menu";
@@ -126,10 +124,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource bindingSource1;
         private BarPOSSystemDataDataSet barPOSSystemDataDataSet;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

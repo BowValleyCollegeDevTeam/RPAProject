@@ -16,15 +16,22 @@ namespace BarPointOfSaleSystem
         public Menu()
         {
             InitializeComponent();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             FoodBtns Fbtns = new FoodBtns();
             Fbtns.Dock = DockStyle.Top;
             panel1.Controls.Add(Fbtns);
 
+            DrinksBtns Dbtns = new DrinksBtns();
+            Dbtns.Dock = DockStyle.Top;
+            panel2.Controls.Add(Dbtns);
+        }
+
+
+        /*private void button1_Click(object sender, EventArgs e)
+        {
+            FoodBtns Fbtns = new FoodBtns();
+            Fbtns.Dock = DockStyle.Top;
+            panel1.Controls.Add(Fbtns);
+           
             bool BtnClicked = true;
             //If Food Button is clicked again, the panel will be cleared.
             if (BtnClicked)
@@ -59,6 +66,7 @@ namespace BarPointOfSaleSystem
             }
 
         }
+        */
 
         private void CloseMenu(object sender, FormClosingEventArgs e)
         {
