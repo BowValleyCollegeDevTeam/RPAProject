@@ -21,6 +21,7 @@ namespace BarPointOfSaleSystem
         private void Billsplitways_ValueChanged(object sender, EventArgs e)
         {
             var splitways = Billsplitways.Value + 1;
+            // each number on the num up down bar  will add one because if the bar is at one you'll be spliting with another person etc.
             var total = Convert.ToDecimal(TotalNumberLBL.Text);
 
             var eachbill = total / splitways;
@@ -34,12 +35,14 @@ namespace BarPointOfSaleSystem
             {
                 TotalPerBillNumberLBL.Text = TotalNumberLBL.Text;
             }
+            // this if statement is incase num updown is set to zero
         }
 
         private void Receipt_Load(object sender, EventArgs e)
         {
             GrabSelectedMenuItems();
             TotalPerBillNumberLBL.Text = TotalNumberLBL.Text;
+            // sets the 2 totals the same until the bill spliter is used
             
             
         }
