@@ -12,7 +12,6 @@ using System.Data.SqlClient;
 
 namespace BarPointOfSaleSystem
 {
-    //added data
     public partial class StaffLogin : Form
     {
         private string dbConnectionString;
