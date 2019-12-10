@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +10,12 @@ using System.Windows.Forms;
 
 namespace BarPointOfSaleSystem
 {
-    public partial class FoodBtns : UserControl
+    public partial class MenuAddOn : Form
     {
-        public FoodBtns()
+        public MenuAddOn()
         {
             InitializeComponent();
         }
 
-        private void AddOn_Click(object sender, EventArgs e)
-        {
-            MenuAddOn MAdd = new MenuAddOn();
-            MAdd.Show();
-        }
     }
 }
