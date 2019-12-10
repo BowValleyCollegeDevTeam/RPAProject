@@ -28,48 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TableNumberLabel = new System.Windows.Forms.Label();
-            this.AddCustBTN = new System.Windows.Forms.Button();
             this.AddOrderBTN = new System.Windows.Forms.Button();
             this.PrintBillBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // TableNumberLabel
-            // 
-            this.TableNumberLabel.AutoSize = true;
-            this.TableNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TableNumberLabel.Location = new System.Drawing.Point(5, 0);
-            this.TableNumberLabel.Name = "TableNumberLabel";
-            this.TableNumberLabel.Size = new System.Drawing.Size(233, 39);
-            this.TableNumberLabel.TabIndex = 20;
-            this.TableNumberLabel.Text = "Table Number";
-            // 
-            // AddCustBTN
-            // 
-            this.AddCustBTN.Location = new System.Drawing.Point(59, 68);
-            this.AddCustBTN.Name = "AddCustBTN";
-            this.AddCustBTN.Size = new System.Drawing.Size(106, 23);
-            this.AddCustBTN.TabIndex = 21;
-            this.AddCustBTN.Text = "Add Customer";
-            this.AddCustBTN.UseVisualStyleBackColor = true;
-            // 
             // AddOrderBTN
             // 
-            this.AddOrderBTN.Location = new System.Drawing.Point(59, 114);
+            this.AddOrderBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddOrderBTN.Location = new System.Drawing.Point(49, 31);
             this.AddOrderBTN.Name = "AddOrderBTN";
             this.AddOrderBTN.Size = new System.Drawing.Size(106, 23);
             this.AddOrderBTN.TabIndex = 22;
             this.AddOrderBTN.Text = "Add Order";
             this.AddOrderBTN.UseVisualStyleBackColor = true;
+            this.AddOrderBTN.Click += new System.EventHandler(this.AddOrderBTN_Click);
             // 
             // PrintBillBTN
             // 
-            this.PrintBillBTN.Location = new System.Drawing.Point(59, 157);
+            this.PrintBillBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.PrintBillBTN.Location = new System.Drawing.Point(49, 60);
             this.PrintBillBTN.Name = "PrintBillBTN";
             this.PrintBillBTN.Size = new System.Drawing.Size(106, 23);
             this.PrintBillBTN.TabIndex = 23;
             this.PrintBillBTN.Text = "Print Bill";
             this.PrintBillBTN.UseVisualStyleBackColor = true;
+            this.PrintBillBTN.Click += new System.EventHandler(this.PrintBillBTN_Click_1);
             // 
             // TableOrderMainMenu
             // 
@@ -77,18 +60,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.PrintBillBTN);
             this.Controls.Add(this.AddOrderBTN);
-            this.Controls.Add(this.AddCustBTN);
-            this.Controls.Add(this.TableNumberLabel);
             this.Name = "TableOrderMainMenu";
-            this.Size = new System.Drawing.Size(243, 235);
+            this.Size = new System.Drawing.Size(200, 235);
+            this.Load += new System.EventHandler(this.TableOrderMainMenu_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label TableNumberLabel;
-        private System.Windows.Forms.Button AddCustBTN;
         private System.Windows.Forms.Button AddOrderBTN;
         private System.Windows.Forms.Button PrintBillBTN;
     }

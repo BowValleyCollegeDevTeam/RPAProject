@@ -12,10 +12,28 @@ namespace BarPointOfSaleSystem
 {
     public partial class TableOrderMainMenu : UserControl
     {
+        
         public TableOrderMainMenu()
         {
             InitializeComponent();
+       
+        }
 
+        private void TableOrderMainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddOrderBTN_Click(object sender, EventArgs e)
+        {
+            new Menu().Show();
+
+        }
+
+
+        private void PrintBillBTN_Click_1(object sender, EventArgs e)
+        {
+            new Receipt().Show();
         }
     }
 }
