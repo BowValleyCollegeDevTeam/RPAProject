@@ -48,13 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,7 +61,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarPOSSystemDataDataSet.cs">
@@ -93,11 +89,11 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuAddOn.cs">
+    <Compile Include="Receipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuAddOn.Designer.cs">
-      <DependentUpon>MenuAddOn.cs</DependentUpon>
+    <Compile Include="Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
     </Compile>
     <Compile Include="StaffLogin.cs">
       <SubType>Form</SubType>
@@ -120,12 +116,6 @@
     <Compile Include="TableSelection.Designer.cs">
       <DependentUpon>TableSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="TopInfoBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TopInfoBar.Designer.cs">
-      <DependentUpon>TopInfoBar.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="DrinksBtns.resx">
       <DependentUpon>DrinksBtns.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,9 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuAddOn.resx">
-      <DependentUpon>MenuAddOn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +135,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffLogin.resx">
       <DependentUpon>StaffLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,9 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TableSelection.resx">
       <DependentUpon>TableSelection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TopInfoBar.resx">
-      <DependentUpon>TopInfoBar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BarPOSSystemDataDataSet.xsc">
       <DependentUpon>BarPOSSystemDataDataSet.xsd</DependentUpon>
