@@ -62,7 +62,7 @@ namespace BarPointOfSaleSystem
 
         private void CloseMenu(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+           
         }
     }
 }
