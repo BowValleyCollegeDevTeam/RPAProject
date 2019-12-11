@@ -119,14 +119,40 @@ namespace BarPointOfSaleSystem
                     string foodName = (string)getFood.Rows[f]["menuName"];
                     if (foodClicked == foodName)
                     {
-                        MessageBox.Show(foodClicked);
+                        MenuAddOn mao = new MenuAddOn();
+                        mao.Show();
+                        mao.foodNamelbl.Text = foodClicked;
+                        mao.foodNamelbl.TextAlign = ContentAlignment.TopCenter;
+                       // mao.foodNamelbl.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (Size.Height / 2));
                     }
+      
 
                 }
-                
+
                 //Button btn = (Button)sender;
                 //string foodClicked = btn.Text;
                 //MessageBox.Show(foodClicked);
+            }
+            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlDataAdapter menuFood = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Food' AND Type = 'Starter'", myConnection))
+            {
+                DataTable getFood = new DataTable();
+
+                myConnection.Open();
+                menuFood.Fill(getFood);
+                myConnection.Close();
+                Button btn = (Button)sender;
+                string foodClicked = btn.Text;
+                for (int f = 0; f < getFood.Rows.Count; f++)
+                {
+                    string foodName = (string)getFood.Rows[f]["menuName"];
+                    if (foodClicked == foodName)
+                    {
+                        MessageBox.Show(foodClicked + " has been added to Order");
+                    }
+
+                }
+
             }
         }
 
