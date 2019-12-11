@@ -119,7 +119,9 @@ namespace BarPointOfSaleSystem
                     string foodName = (string)getFood.Rows[f]["menuName"];
                     if (foodClicked == foodName)
                     {
-                        MessageBox.Show(foodClicked);
+                        MenuAddOn MAdd = new MenuAddOn();
+                        MAdd.Show();
+
                     }
 
                 }
