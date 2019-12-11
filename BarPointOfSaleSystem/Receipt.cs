@@ -74,7 +74,7 @@ namespace BarPointOfSaleSystem
                     {
                         string menuname = (string)grabOrders.Rows[r]["menuName"];
                         decimal price = (decimal)grabOrders.Rows[r]["Price"];
-                        price = (decimal)Math.Round(price, 2);
+                        //price = (decimal)Math.Round(price, 2);
                         menuprice.Add(price);
                         mName.Add(menuname);
 
@@ -88,14 +88,18 @@ namespace BarPointOfSaleSystem
                 }
                 myconnection.Close();
             }
-            
+            decimal totalBill = 0;
             foreach (string n in mName)
             {
                 foreach (decimal c in menuprice)
                 {
                     billrtb.Text += (Environment.NewLine +  n + "   $" + c + Environment.NewLine);
+                    totalBill += c;
+
                 }
             }
+            TotalNumberLBL.Text = totalBill.ToString();
+
             //GrabOrder();
             TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;
             // sets the 2 totals the same until the bill spliter is used
