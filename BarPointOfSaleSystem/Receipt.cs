@@ -58,7 +58,7 @@ namespace BarPointOfSaleSystem
                 {
                     decimal price = (decimal)grabOrder.Rows[i]["Price"];
                     price = (decimal)Math.Round(price, 2);
-                    BillListBox.Items.Add(menu.fooditem + "   $" + price);
+                    billrtb.Text += (menu.fooditem + "   $" + price + Environment.NewLine);
                 }
 
 
@@ -85,7 +85,8 @@ namespace BarPointOfSaleSystem
                     {
                         decimal price = (decimal)grabOrder.Rows[i]["Price"];
                         price = (decimal)Math.Round(price,2);
-                        BillListBox.Items.Add("   -" +items + "   $" + price);
+                        billrtb.Text += ("   -" +items + "   $" + price + Environment.NewLine);
+                        
                     }
 
 
@@ -115,7 +116,7 @@ namespace BarPointOfSaleSystem
                     string cat = (string)grabOrder.Rows[i]["Category"];
                     decimal price = (decimal)grabOrder.Rows[i]["Price"];
 
-                    BillListBox.Items.Add($"{name,-5} {cat,-5} {price,-5}");
+                    billrtb.Text += ($"{name,-5} {cat,-5} {price,-5}");
 
                     prices.Add(price);
                    

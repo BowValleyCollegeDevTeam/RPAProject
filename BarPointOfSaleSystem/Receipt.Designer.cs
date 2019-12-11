@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BillListBox = new System.Windows.Forms.ListBox();
             this.TableNumberForBillLBL = new System.Windows.Forms.Label();
             this.TotalLBL = new System.Windows.Forms.Label();
             this.TotalNumberLBL = new System.Windows.Forms.Label();
@@ -37,18 +36,9 @@
             this.TotalPerBillNumberLBL = new System.Windows.Forms.Label();
             this.totalaftersplitLBL = new System.Windows.Forms.Label();
             this.EmployeeNameLBL = new System.Windows.Forms.Label();
+            this.billrtb = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Billsplitways)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BillListBox
-            // 
-            this.BillListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillListBox.FormattingEnabled = true;
-            this.BillListBox.ItemHeight = 20;
-            this.BillListBox.Location = new System.Drawing.Point(49, 97);
-            this.BillListBox.Name = "BillListBox";
-            this.BillListBox.Size = new System.Drawing.Size(285, 504);
-            this.BillListBox.TabIndex = 0;
             // 
             // TableNumberForBillLBL
             // 
@@ -129,11 +119,20 @@
             this.EmployeeNameLBL.TabIndex = 8;
             this.EmployeeNameLBL.Text = "label1";
             // 
+            // billrtb
+            // 
+            this.billrtb.Location = new System.Drawing.Point(61, 89);
+            this.billrtb.Name = "billrtb";
+            this.billrtb.Size = new System.Drawing.Size(287, 447);
+            this.billrtb.TabIndex = 9;
+            this.billrtb.Text = "";
+            // 
             // Receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 676);
+            this.Controls.Add(this.billrtb);
             this.Controls.Add(this.EmployeeNameLBL);
             this.Controls.Add(this.TotalPerBillNumberLBL);
             this.Controls.Add(this.totalaftersplitLBL);
@@ -142,7 +141,6 @@
             this.Controls.Add(this.TotalNumberLBL);
             this.Controls.Add(this.TotalLBL);
             this.Controls.Add(this.TableNumberForBillLBL);
-            this.Controls.Add(this.BillListBox);
             this.Name = "Receipt";
             this.Text = "Reciept";
             this.Load += new System.EventHandler(this.Receipt_Load);
@@ -153,8 +151,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox BillListBox;
         private System.Windows.Forms.Label TableNumberForBillLBL;
         private System.Windows.Forms.Label TotalLBL;
         private System.Windows.Forms.Label TotalNumberLBL;
@@ -163,5 +159,6 @@
         private System.Windows.Forms.Label TotalPerBillNumberLBL;
         private System.Windows.Forms.Label totalaftersplitLBL;
         private System.Windows.Forms.Label EmployeeNameLBL;
+        private System.Windows.Forms.RichTextBox billrtb;
     }
 }
