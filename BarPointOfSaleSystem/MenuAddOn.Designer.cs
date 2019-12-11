@@ -38,12 +38,14 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.foodNamelbl = new System.Windows.Forms.Label();
+            this.addToOrderbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(286, 200);
+            this.checkBox5.Location = new System.Drawing.Point(241, 200);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(80, 17);
             this.checkBox5.TabIndex = 9;
@@ -53,7 +55,7 @@
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(286, 177);
+            this.checkBox6.Location = new System.Drawing.Point(241, 177);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(80, 17);
             this.checkBox6.TabIndex = 8;
@@ -63,7 +65,7 @@
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(286, 154);
+            this.checkBox7.Location = new System.Drawing.Point(241, 154);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(80, 17);
             this.checkBox7.TabIndex = 7;
@@ -73,7 +75,7 @@
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(286, 128);
+            this.checkBox8.Location = new System.Drawing.Point(241, 128);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(80, 17);
             this.checkBox8.TabIndex = 6;
@@ -84,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(294, 72);
+            this.label2.Location = new System.Drawing.Point(249, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 25);
             this.label2.TabIndex = 5;
@@ -140,11 +142,36 @@
             this.checkBox4.Text = "checkBox4";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
+            // foodNamelbl
+            // 
+            this.foodNamelbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.foodNamelbl.AutoSize = true;
+            this.foodNamelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foodNamelbl.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.foodNamelbl.Location = new System.Drawing.Point(121, 22);
+            this.foodNamelbl.Margin = new System.Windows.Forms.Padding(0);
+            this.foodNamelbl.Name = "foodNamelbl";
+            this.foodNamelbl.Size = new System.Drawing.Size(76, 25);
+            this.foodNamelbl.TabIndex = 10;
+            this.foodNamelbl.Text = "label3";
+            this.foodNamelbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // addToOrderbtn
+            // 
+            this.addToOrderbtn.Location = new System.Drawing.Point(307, 288);
+            this.addToOrderbtn.Name = "addToOrderbtn";
+            this.addToOrderbtn.Size = new System.Drawing.Size(75, 23);
+            this.addToOrderbtn.TabIndex = 11;
+            this.addToOrderbtn.Text = "Add to Order";
+            this.addToOrderbtn.UseVisualStyleBackColor = true;
+            // 
             // MenuAddOn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 323);
+            this.Controls.Add(this.addToOrderbtn);
+            this.Controls.Add(this.foodNamelbl);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox7);
@@ -173,5 +200,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Button addToOrderbtn;
+        public System.Windows.Forms.Label foodNamelbl;
     }
 }
