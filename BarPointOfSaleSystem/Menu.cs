@@ -67,7 +67,7 @@ namespace BarPointOfSaleSystem
         {
            
         }
-        public string buttonName;
+     
         private void GetFood()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
@@ -95,7 +95,7 @@ namespace BarPointOfSaleSystem
                     foodPanel.Controls.Add(foodButton);
                     foodButton.Dock = DockStyle.Left;
                     foodButton.Click += new EventHandler(foodButton_Click);
-                    buttonName = foodButton.CommandName;
+                    
                 }
                
 
@@ -104,7 +104,30 @@ namespace BarPointOfSaleSystem
 
         private void foodButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(buttonName);
+            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlDataAdapter menuFood = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Food' AND Type != 'Starter'", myConnection))
+            {
+                DataTable getFood = new DataTable();
+
+                myConnection.Open();
+                menuFood.Fill(getFood);
+                myConnection.Close();
+                Button btn = (Button)sender;
+                string foodClicked = btn.Text;
+                for (int f = 0; f < getFood.Rows.Count; f++)
+                {
+                    string foodName = (string)getFood.Rows[f]["menuName"];
+                    if (foodClicked == foodName)
+                    {
+                        MessageBox.Show(foodClicked);
+                    }
+
+                }
+                
+                //Button btn = (Button)sender;
+                //string foodClicked = btn.Text;
+                //MessageBox.Show(foodClicked);
+            }
         }
 
         private void GetDrinks()
@@ -133,11 +156,19 @@ namespace BarPointOfSaleSystem
                     drinksButton.Text = drinksList[i];
                     drinksPanel.Controls.Add(drinksButton);
                     drinksButton.Dock = DockStyle.Left;
+                    drinksButton.Click += new EventHandler(drinksButton_Click);
 
                 }
 
 
             }
+        }
+
+        private void drinksButton_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string drinkClicked = btn.Text;
+            MessageBox.Show(drinkClicked);
         }
 
         private void Menu_Load(object sender, EventArgs e)
