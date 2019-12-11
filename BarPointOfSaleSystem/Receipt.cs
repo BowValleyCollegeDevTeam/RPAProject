@@ -93,7 +93,7 @@ namespace BarPointOfSaleSystem
             {
                 foreach (decimal c in menuprice)
                 {
-                    billrtb.Text += (Environment.NewLine +  n + "   $" + c + Environment.NewLine);
+                    billrtb.Text += (n + "   $" + c + Environment.NewLine);
                     totalBill += c;
 
                 }
@@ -118,13 +118,13 @@ namespace BarPointOfSaleSystem
                     receipt.Fill(grabOrder);
                     myconnection.Close();
 
-                    for (int r = 0; r < grabOrder.Rows.Count; r++)
-                    {
-                        decimal price = (decimal)grabOrder.Rows[r]["Price"];
-                        price = (decimal)Math.Round(price,2);
-                        billrtb.Text += ("   -" +items + "   $" + price + Environment.NewLine);
+                    //for (int r = 0; r < grabOrder.Rows.Count; r++)
+                    //{
+                    //    decimal price = (decimal)grabOrder.Rows[r]["Price"];
+                    //    price = (decimal)Math.Round(price,2);
+                    //    billrtb.Text += ("   -" +items + "   $" + price + Environment.NewLine);
                         
-                    }
+                    //}
 
 
                 }
