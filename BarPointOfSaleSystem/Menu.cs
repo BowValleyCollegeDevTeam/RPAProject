@@ -121,8 +121,8 @@ namespace BarPointOfSaleSystem
                     {
                         MenuAddOn mao = new MenuAddOn();
                         mao.Show();
-                        mao.foodNamelbl.Text = foodClicked;
-                        mao.foodNamelbl.TextAlign = ContentAlignment.TopCenter;
+                        //mao.foodNamelbl.Text = foodClicked;
+                       // mao.foodNamelbl.TextAlign = ContentAlignment.TopCenter;
                        // mao.foodNamelbl.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (Size.Height / 2));
                     }
       
