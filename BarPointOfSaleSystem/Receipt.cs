@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace BarPointOfSaleSystem
 {
     public partial class Receipt : Form
     {
+        string dbconnectionstring;
         public Receipt()
         {
             InitializeComponent();
@@ -40,20 +43,47 @@ namespace BarPointOfSaleSystem
 
         private void Receipt_Load(object sender, EventArgs e)
         {
-            GrabSelectedMenuItems();
+            //GrabOrder();
             TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;
             // sets the 2 totals the same until the bill spliter is used
             
             
         }
 
-        private void GrabSelectedMenuItems()
+        private void GrabOrder()
         {
-            // go into the database and grab the selected items for the certain table number
-            var totalamount = 65.55 + 36.75;
-            totalamount = Math.Round(totalamount, 2);
+            dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
+            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT Category, [Name], Price FROM Menu Join Orders ON Menu.MenuId = Orders.MenuId Join Employees on Employees.EmployeeId = Orders.EmployeeId join[Tables] on[Tables].TableId = Orders.TableId join Customers on Customers.CustomerId = Orders.CustomerId WHERE Orders.TableId = 10; ", myconnection))
+            {
+                DataTable grabOrder = new DataTable();
 
-            TotalNumberLBL.Text = totalamount.ToString();
+                myconnection.Open();
+                receipt.Fill(grabOrder);
+                myconnection.Close();
+
+
+                List<decimal> prices = new List<decimal>();
+                for (int i = 0; i < grabOrder.Rows.Count; i++)
+                {
+                    string name = (string)grabOrder.Rows[i]["Name"];
+                    string cat = (string)grabOrder.Rows[i]["Category"];
+                    decimal price = (decimal)grabOrder.Rows[i]["Price"];
+
+                    BillListBox.Items.Add($"{name,-5} {cat,-5} {price,-5}");
+
+                    prices.Add(price);
+                   
+
+
+                }
+                // go into the database and grab the selected items for the certain table number
+                var totalamount = prices.Sum();
+                totalamount = Math.Round(totalamount, 2);
+
+                TotalNumberLBL.Text = totalamount.ToString();
+            }
+
         }
     }
 }
