@@ -36,6 +36,7 @@
             this.Billsplitways = new System.Windows.Forms.NumericUpDown();
             this.TotalPerBillNumberLBL = new System.Windows.Forms.Label();
             this.totalaftersplitLBL = new System.Windows.Forms.Label();
+            this.EmployeeNameLBL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Billsplitways)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.BillListBox.FormattingEnabled = true;
             this.BillListBox.Location = new System.Drawing.Point(49, 97);
             this.BillListBox.Name = "BillListBox";
-            this.BillListBox.Size = new System.Drawing.Size(285, 550);
+            this.BillListBox.Size = new System.Drawing.Size(285, 524);
             this.BillListBox.TabIndex = 0;
             // 
             // TableNumberForBillLBL
@@ -116,11 +117,22 @@
             this.totalaftersplitLBL.TabIndex = 6;
             this.totalaftersplitLBL.Text = "Total Per Bill:";
             // 
+            // EmployeeNameLBL
+            // 
+            this.EmployeeNameLBL.AutoSize = true;
+            this.EmployeeNameLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameLBL.Location = new System.Drawing.Point(55, 582);
+            this.EmployeeNameLBL.Name = "EmployeeNameLBL";
+            this.EmployeeNameLBL.Size = new System.Drawing.Size(70, 25);
+            this.EmployeeNameLBL.TabIndex = 8;
+            this.EmployeeNameLBL.Text = "label1";
+            // 
             // Receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 676);
+            this.Controls.Add(this.EmployeeNameLBL);
             this.Controls.Add(this.TotalPerBillNumberLBL);
             this.Controls.Add(this.totalaftersplitLBL);
             this.Controls.Add(this.Billsplitways);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.NumericUpDown Billsplitways;
         private System.Windows.Forms.Label TotalPerBillNumberLBL;
         private System.Windows.Forms.Label totalaftersplitLBL;
+        private System.Windows.Forms.Label EmployeeNameLBL;
     }
 }

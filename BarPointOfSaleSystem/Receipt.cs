@@ -54,7 +54,7 @@ namespace BarPointOfSaleSystem
         {
             dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
             using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
-            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT Category, [Name], Price FROM Menu Join Orders ON Menu.MenuId = Orders.MenuId Join Employees on Employees.EmployeeId = Orders.EmployeeId join[Tables] on[Tables].TableId = Orders.TableId join Customers on Customers.CustomerId = Orders.CustomerId WHERE Orders.TableId = 10; ", myconnection))
+            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT Category, [Name], Price, TableNumber, FName + ' ' + LName As FullName FROM Menu Join Orders ON Menu.MenuId = Orders.MenuId Join Employees on Employees.EmployeeId = Orders.EmployeeId join[Tables] on[Tables].TableId = Orders.TableId join Customers on Customers.CustomerId = Orders.CustomerId WHERE Orders.TableId = 10; ", myconnection))
             {
                 DataTable grabOrder = new DataTable();
 
@@ -62,21 +62,31 @@ namespace BarPointOfSaleSystem
                 receipt.Fill(grabOrder);
                 myconnection.Close();
 
-
+                string EmployeeName;
                 List<decimal> prices = new List<decimal>();
                 for (int i = 0; i < grabOrder.Rows.Count; i++)
                 {
                     string name = (string)grabOrder.Rows[i]["Name"];
                     string cat = (string)grabOrder.Rows[i]["Category"];
                     decimal price = (decimal)grabOrder.Rows[i]["Price"];
+                    string tab = (string)grabOrder.Rows[i]["TableNumber"];
+                    string empname = (string)grabOrder.Rows[i]["FullName"];
 
+                    
                     BillListBox.Items.Add($"{name,-5} {cat,-5} {price,-5}");
+                    
+                    EmployeeNameLBL.Text = "Served By: " + empname;
+
+
+                    TableNumberForBillLBL.Text = $"{tab}";
 
                     prices.Add(price);
                    
 
 
                 }
+                //EmployeeNameLBL.Text = "Served By: " + EmployeeName;
+
                 // go into the database and grab the selected items for the certain table number
                 var totalamount = prices.Sum();
                 totalamount = Math.Round(totalamount, 2);
@@ -85,5 +95,7 @@ namespace BarPointOfSaleSystem
             }
 
         }
+
+        
     }
 }
