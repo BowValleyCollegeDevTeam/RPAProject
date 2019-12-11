@@ -201,51 +201,44 @@ namespace BarPointOfSaleSystem
             string drinkClicked = btn.Text;
             MessageBox.Show(drinkClicked);
 
-
-
-            using (StaffLogin staffLogin = new StaffLogin())
-            using (TableSelection tableSelection = new TableSelection())
+            int tableId;
+            int employeeId;
+            int menuId;
+            using (StaffLogin login = new StaffLogin())
+            using (TableSelection section = new TableSelection())
+            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlDataAdapter menuDrinks = new SqlDataAdapter($"SELECT * FROM [Tables] WHERE TableNumber = '{section.tble}'", myConnection))
+            using (SqlDataAdapter employee = new SqlDataAdapter($"SELECT * FROM Employees WHERE  PIN = {login.pin}", myConnection))
+            using (SqlDataAdapter menu = new SqlDataAdapter($"SELECT * FROM Menu WHERE  menuName = '{drinkClicked}'", myConnection))
             {
-                string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
-                SqlConnection myConnection = new SqlConnection(str);
+
+                DataTable getDrinks = new DataTable();
+                DataTable getemployees = new DataTable();
+                DataTable getmenu = new DataTable();
+
+
                 myConnection.Open();
-
-                string tab = tableSelection.tble;
-                string emp = staffLogin.pin;
-
-                SqlCommand getmenuid = new SqlCommand("SELECT * FROM Menu",myConnection);
-                SqlCommand gettableid = new SqlCommand("SELECT * FROM [Tables]",myConnection);
-                SqlCommand getemployeeid = new SqlCommand("SELECT * FROM Employees",myConnection);
-              
-
-                SqlDataAdapter getmen = new SqlDataAdapter(getmenuid);
-                SqlDataAdapter gettable = new SqlDataAdapter(gettableid);
-                SqlDataAdapter getemp = new SqlDataAdapter(getemployeeid);
+                menuDrinks.Fill(getDrinks);
+                employee.Fill(getemployees);
+                menu.Fill(getmenu);
 
 
 
-                DataTable dataTable = new DataTable();
 
-               
 
-                
-                getmen.Fill(dataTable);
-                gettable.Fill(dataTable);
-                getemp.Fill(dataTable);
-                for(int row = 0; row < dataTable.Rows.Count; row++)
+                for (int row = 0; row < getDrinks.Rows.Count; row++)
                 {
-                    int m = (int)dataTable.Rows[row]["MenuId"];
-                    int t = (int)dataTable.Rows[row]["TableId"];
-                    int em = (int)dataTable.Rows[row]["EmployeeId"];
 
-                    
-                    SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES ('" + t + "' , '" + t + "', '" + m + "');", myConnection);
-                    //" WHERE Menu.menuName = '" + drinkClicked + "' AND [Tables].TableNumber = '" + tab + "' AND Employees.PIN = '"+emp+"'", myConnection))
+                    tableId = (int)getDrinks.Rows[row]["TableId"];
+                    employeeId = (int)getemployees.Rows[row]["EmployeeId"];
+                    menuId = (int)getmenu.Rows[row]["MenuId"];
+
+                    //MessageBox.Show(tableId.ToString());
+                    //MessageBox.Show(employeeId.ToString());
+                    //MessageBox.Show(menuId.ToString());
 
 
-
-                  
-
+                    SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES ('" + tableId+ "' , '" + employeeId + "', '" + menuId + "');", myConnection);
                     insertdrinks.ExecuteNonQuery();
 
                     myConnection.Close();
