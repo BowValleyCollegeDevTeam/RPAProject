@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 namespace BarPointOfSaleSystem
 {
     public partial class Menu : Form
@@ -66,6 +67,7 @@ namespace BarPointOfSaleSystem
         {
            
         }
+        public string buttonName;
         private void GetFood()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
@@ -92,12 +94,19 @@ namespace BarPointOfSaleSystem
                     foodButton.Text = foodList[i];
                     foodPanel.Controls.Add(foodButton);
                     foodButton.Dock = DockStyle.Left;
-
+                    foodButton.Click += new EventHandler(foodButton_Click);
+                    buttonName = foodButton.CommandName;
                 }
-
+               
 
             }
         }
+
+        private void foodButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(buttonName);
+        }
+
         private void GetDrinks()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
