@@ -43,6 +43,9 @@ namespace BarPointOfSaleSystem
 
         private void Receipt_Load(object sender, EventArgs e)
         {
+            List<decimal> menuprice = new List<decimal>();
+            List<string> mName = new List<string>();
+
             Menu menu = new Menu();
             dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
             using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
@@ -58,10 +61,19 @@ namespace BarPointOfSaleSystem
                 {
                     decimal price = (decimal)grabOrder.Rows[i]["Price"];
                     price = (decimal)Math.Round(price, 2);
-                    billrtb.Text += (menu.fooditem + "   $" + price + Environment.NewLine);
+                    menuprice.Add(price);
+                    mName.Add(menu.fooditem);
+                    //billrtb.Text += (menu.fooditem + "   $" + price + Environment.NewLine);
                 }
 
 
+            }
+            foreach (string i in mName)
+            {
+                foreach (decimal c in menuprice)
+                {
+                    billrtb.Text += (Environment.NewLine + i + "   $" + c + Environment.NewLine);
+                }
             }
             //GrabOrder();
             TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;

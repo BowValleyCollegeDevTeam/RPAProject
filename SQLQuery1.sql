@@ -1,1 +1,1 @@
-﻿SELECT TableId FROM [Tables]
+﻿INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES (4 , 1, 23);
