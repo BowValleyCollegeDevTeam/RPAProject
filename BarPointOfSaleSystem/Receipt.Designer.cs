@@ -42,10 +42,12 @@
             // 
             // BillListBox
             // 
+            this.BillListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillListBox.FormattingEnabled = true;
+            this.BillListBox.ItemHeight = 25;
             this.BillListBox.Location = new System.Drawing.Point(49, 97);
             this.BillListBox.Name = "BillListBox";
-            this.BillListBox.Size = new System.Drawing.Size(285, 524);
+            this.BillListBox.Size = new System.Drawing.Size(285, 504);
             this.BillListBox.TabIndex = 0;
             // 
             // TableNumberForBillLBL
@@ -120,10 +122,10 @@
             // EmployeeNameLBL
             // 
             this.EmployeeNameLBL.AutoSize = true;
-            this.EmployeeNameLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeNameLBL.Location = new System.Drawing.Point(55, 582);
+            this.EmployeeNameLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameLBL.Location = new System.Drawing.Point(56, 562);
             this.EmployeeNameLBL.Name = "EmployeeNameLBL";
-            this.EmployeeNameLBL.Size = new System.Drawing.Size(70, 25);
+            this.EmployeeNameLBL.Size = new System.Drawing.Size(76, 25);
             this.EmployeeNameLBL.TabIndex = 8;
             this.EmployeeNameLBL.Text = "label1";
             // 
