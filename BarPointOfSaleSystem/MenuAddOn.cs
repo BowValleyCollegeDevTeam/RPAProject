@@ -24,7 +24,7 @@ namespace BarPointOfSaleSystem
         private void GetOptions()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
-            using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options WHERE IsSide = 'False'", myConnection))
+            using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE Menu.MenuId = Options.MenuId", myConnection))
             {
                 DataTable getOptions = new DataTable();
 
@@ -53,7 +53,7 @@ namespace BarPointOfSaleSystem
         private void GetSides()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
-            using (SqlDataAdapter menuSides = new SqlDataAdapter($"SELECT * FROM Options WHERE IsSide = 'True'", myConnection))
+            using (SqlDataAdapter menuSides = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId AND Menu.MenuId = Options.MenuId AND IsSide='True'", myConnection))
             {
                 DataTable getSides = new DataTable();
 
