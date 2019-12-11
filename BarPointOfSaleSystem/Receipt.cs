@@ -54,7 +54,9 @@ namespace BarPointOfSaleSystem
         {
             dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
             using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
-            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT Category, menuName, Price, TableNumber, FName + ' ' + LName As FullName FROM Menu Join Orders ON Menu.MenuId = Orders.MenuId Join Employees on Employees.EmployeeId = Orders.EmployeeId join[Tables] on[Tables].TableId = Orders.TableId join Customers on Customers.CustomerId = Orders.CustomerId WHERE Orders.TableId = 10; ", myconnection))
+            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT Category, menuName, Price, TableNumber, FName + ' ' + LName As FullName FROM Menu " +
+                "Join Orders ON Menu.MenuId = Orders.MenuId Join Employees on Employees.EmployeeId = Orders.EmployeeId " +
+                "join[Tables] on[Tables].TableId = Orders.TableId  WHERE Orders.TableId = 10; ", myconnection))
             {
                 DataTable grabOrder = new DataTable();
 
