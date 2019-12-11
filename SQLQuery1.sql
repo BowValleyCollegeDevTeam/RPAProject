@@ -1,0 +1,1 @@
+﻿SELECT TableId FROM [Tables]

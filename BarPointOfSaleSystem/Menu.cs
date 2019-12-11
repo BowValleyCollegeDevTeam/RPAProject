@@ -193,6 +193,36 @@ namespace BarPointOfSaleSystem
 
 
             }
+            //using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            //using (SqlDataAdapter menuDrinks = new SqlDataAdapter($"SELECT * FROM [Tables] WHERE Table = 'Drinks'", myConnection))
+            //{
+            //    DataTable getDrinks = new DataTable();
+
+            //    myConnection.Open();
+            //    menuDrinks.Fill(getDrinks);
+            //    myConnection.Close();
+            //    List<string> drinksList = new List<string>();
+            //    for (int f = 0; f < getDrinks.Rows.Count; f++)
+            //    {
+            //        string drinksName = (string)getDrinks.Rows[f]["menuName"];
+            //        drinksList.Add(drinksName);
+
+
+
+            //    }
+
+            //    for (int i = 0; i < drinksList.Count; i++)
+            //    {
+            //        Button drinksButton = new Button();
+            //        drinksButton.Text = drinksList[i];
+            //        drinksPanel.Controls.Add(drinksButton);
+            //        drinksButton.Dock = DockStyle.Left;
+            //        drinksButton.Click += new EventHandler(drinksButton_Click);
+
+            //    }
+
+
+            //}
         }
 
         private void drinksButton_Click(object sender, EventArgs e)
@@ -200,6 +230,8 @@ namespace BarPointOfSaleSystem
             Button btn = (Button)sender;
             string drinkClicked = btn.Text;
             MessageBox.Show(drinkClicked);
+
+
         }
 
         private void Menu_Load(object sender, EventArgs e)

@@ -43,10 +43,55 @@ namespace BarPointOfSaleSystem
 
         private void Receipt_Load(object sender, EventArgs e)
         {
+            Menu menu = new Menu();
+            dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
+            using (SqlDataAdapter receipt = new SqlDataAdapter($"SELECT * FROM Menu WHERE Menu.menuName = '{menu.fooditem}'", myconnection))
+            {
+                DataTable grabOrder = new DataTable();
+
+                myconnection.Open();
+                receipt.Fill(grabOrder);
+                myconnection.Close();
+
+                for (int i = 0; i < grabOrder.Rows.Count; i++)
+                {
+                    decimal price = (decimal)grabOrder.Rows[i]["Price"];
+                    price = (decimal)Math.Round(price, 2);
+                    BillListBox.Items.Add(menu.fooditem + "   $" + price);
+                }
+
+
+            }
             //GrabOrder();
             TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;
             // sets the 2 totals the same until the bill spliter is used
-            
+            //MenuAddOn.checkedOption.Add(BillListBox.Items);
+            foreach (var items in MenuAddOn.CheckedOption)
+            {
+                //BillListBox.Items.Add(items);
+
+                dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+                using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
+                using (SqlDataAdapter receipt = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Menu.MenuId = Options.MenuId WHERE Options.[Name] = '{items}' AND Menu.menuName = '{menu.fooditem}'", myconnection))
+                {
+                    DataTable grabOrder = new DataTable();
+
+                    myconnection.Open();
+                    receipt.Fill(grabOrder);
+                    myconnection.Close();
+
+                    for (int i = 0; i < grabOrder.Rows.Count; i++)
+                    {
+                        decimal price = (decimal)grabOrder.Rows[i]["Price"];
+                        price = (decimal)Math.Round(price,2);
+                        BillListBox.Items.Add("   -" +items + "   $" + price);
+                    }
+
+
+                }
+            }
+
             
         }
 

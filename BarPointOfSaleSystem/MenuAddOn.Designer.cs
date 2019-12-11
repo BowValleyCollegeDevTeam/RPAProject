@@ -73,6 +73,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Add To Order";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -115,9 +116,9 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label foodNamelbl;
+        public System.Windows.Forms.Panel panel1;
     }
 }

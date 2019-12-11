@@ -21,18 +21,19 @@ namespace BarPointOfSaleSystem
         }
 
 
+
         private void GetOptions()
         {
+
             using (Menu menu = new Menu())
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
             using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 0 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
                 DataTable getOptions = new DataTable();
-
+                List<string> OptList = new List<string>();
                 myConnection.Open();
                 menuOptions.Fill(getOptions);
                 myConnection.Close();
-                List<string> OptList = new List<string>();
                 for (int f = 0; f < getOptions.Rows.Count; f++)
                 {
                     string foodname = (string)getOptions.Rows[f]["menuName"];
@@ -48,6 +49,7 @@ namespace BarPointOfSaleSystem
                     OptCheck.Dock = DockStyle.Top;
 
                 }
+                
 
             }
         }
@@ -83,6 +85,11 @@ namespace BarPointOfSaleSystem
 
             }
         }
+        public static List<string> checkedOption = new List<string>();
+        public static List<string> CheckedOption
+        {
+            get {return checkedOption; }
+        }
 
 
         private void MenuAddOn_Load(object sender, EventArgs e)
@@ -90,6 +97,26 @@ namespace BarPointOfSaleSystem
             dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
             GetOptions();
             GetSides();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in panel1.Controls)
+            {
+                if (c is CheckBox && ((CheckBox)c).Checked)
+                {
+                    checkedOption.Add(c.Text);
+                }
+            }
+            foreach (Control c in panel2.Controls)
+            {
+                if (c is CheckBox &&((CheckBox)c).Checked)
+                {
+                    checkedOption.Add(c.Text);
+                }
+            }
+            this.Hide();
         }
     }
 }
