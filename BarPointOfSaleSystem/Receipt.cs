@@ -43,7 +43,7 @@ namespace BarPointOfSaleSystem
 
         private void Receipt_Load(object sender, EventArgs e)
         {
-            GrabOrder();
+            //GrabOrder();
             TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;
             // sets the 2 totals the same until the bill spliter is used
             
