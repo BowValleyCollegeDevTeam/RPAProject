@@ -15,13 +15,19 @@ namespace BarPointOfSaleSystem
     public partial class TableSelection : Form
     {
         private string dbConnectionString;
+        
+        
 
-
-        public Label TableName = new Label();
+        public static Label TableName = new Label();
 
         public TableSelection()
         {
             InitializeComponent();
+        }
+      
+        public string tble
+        {
+            get { return TableName.Text; }
         }
 
         private void FormCenterToScreen()
@@ -35,6 +41,8 @@ namespace BarPointOfSaleSystem
             // TODO: This line of code loads data into the 'barPOSSystemDataDataSet.Employees' table. You can move, or remove it, as needed.
             //this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
             getTopBar();
+
+
 
         }
 
@@ -91,94 +99,96 @@ namespace BarPointOfSaleSystem
         }
         private void TableSelectionClick(object sender, EventArgs e)
         {
+            
             if (sender == Table1 && TableName.Text == "")
             {
                 TableName.Text = Table1.Name;
                 CreateOrderMenu();
+                
             }
 
             else if (sender == Table2 && TableName.Text == "")
             {
                 TableName.Text = Table2.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == Table3 && TableName.Text == "")
             {
                 TableName.Text = Table3.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == Table4 && TableName.Text == "")
             {
                 TableName.Text = Table4.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == Table5 && TableName.Text == "")
             {
                 TableName.Text = Table5.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == Table6 && TableName.Text == "")
             {
                 TableName.Text = Table6.Name;
                 CreateOrderMenu();
-
+               
             }
 
             else if (sender == Table7 && TableName.Text == "")
             {
                 TableName.Text = Table7.Name;
                 CreateOrderMenu();
-
+               
             }
 
             else if (sender == Table8 && TableName.Text == "")
             {
                 TableName.Text = Table8.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == Table9 && TableName.Text == "")
             {
                 TableName.Text = Table9.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == BarStool1 && TableName.Text == "")
             {
                 TableName.Text = BarStool1.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == BarStool2 && TableName.Text == "")
             {
                 TableName.Text = BarStool2.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == BarStool3 && TableName.Text == "")
             {
                 TableName.Text = BarStool3.Name;
                 CreateOrderMenu();
-
+                
             }
 
             else if (sender == BarStool4 && TableName.Text == "")
             {
                 TableName.Text = BarStool4.Name;
                 CreateOrderMenu();
-
+               
             }
 
             else
@@ -192,6 +202,7 @@ namespace BarPointOfSaleSystem
                 catch { }
             }
         }
+      
 
 
         private void TableSelectionMouseHover(object sender, EventArgs e)
