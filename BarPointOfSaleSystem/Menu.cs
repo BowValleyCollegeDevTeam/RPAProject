@@ -16,11 +16,16 @@ namespace BarPointOfSaleSystem
     public partial class Menu : Form
     {
         private string dbConnectionString;
+        public static string dfooditem;
+
         public Menu()
         {
             InitializeComponent();
         }
-
+        public string fooditem
+        {
+            get { return dfooditem; }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -113,15 +118,15 @@ namespace BarPointOfSaleSystem
                 menuFood.Fill(getFood);
                 myConnection.Close();
                 Button btn = (Button)sender;
-                string foodClicked = btn.Text;
+                dfooditem = btn.Text;
                 for (int f = 0; f < getFood.Rows.Count; f++)
                 {
                     string foodName = (string)getFood.Rows[f]["menuName"];
-                    if (foodClicked == foodName)
+                    if (dfooditem == foodName)
                     {
                         MenuAddOn mao = new MenuAddOn();
                         mao.Show();
-                        //mao.foodNamelbl.Text = foodClicked;
+                        mao.foodNamelbl.Text = dfooditem;
                        // mao.foodNamelbl.TextAlign = ContentAlignment.TopCenter;
                        // mao.foodNamelbl.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (Size.Height / 2));
                     }

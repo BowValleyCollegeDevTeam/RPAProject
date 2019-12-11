@@ -23,8 +23,9 @@ namespace BarPointOfSaleSystem
 
         private void GetOptions()
         {
+            using (Menu menu = new Menu())
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
-            using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE Menu.MenuId = Options.MenuId", myConnection))
+            using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 0 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
                 DataTable getOptions = new DataTable();
 
@@ -34,6 +35,7 @@ namespace BarPointOfSaleSystem
                 List<string> OptList = new List<string>();
                 for (int f = 0; f < getOptions.Rows.Count; f++)
                 {
+                    string foodname = (string)getOptions.Rows[f]["menuName"];
                     string Options = (string)getOptions.Rows[f]["Name"];
                     OptList.Add(Options);
                 }
@@ -52,8 +54,10 @@ namespace BarPointOfSaleSystem
 
         private void GetSides()
         {
+           
+            using (Menu menu = new Menu())
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
-            using (SqlDataAdapter menuSides = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId AND Menu.MenuId = Options.MenuId AND IsSide='True'", myConnection))
+            using (SqlDataAdapter menuSides = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 1 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
                 DataTable getSides = new DataTable();
 
@@ -63,6 +67,7 @@ namespace BarPointOfSaleSystem
                 List<string> SideList = new List<string>();
                 for (int f = 0; f < getSides.Rows.Count; f++)
                 {
+                    string foodname = (string)getSides.Rows[f]["menuName"];
                     string Sides = (string)getSides.Rows[f]["Name"];
                     SideList.Add(Sides);
                 }
@@ -78,6 +83,7 @@ namespace BarPointOfSaleSystem
 
             }
         }
+
 
         private void MenuAddOn_Load(object sender, EventArgs e)
         {
