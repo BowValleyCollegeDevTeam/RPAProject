@@ -45,34 +45,55 @@ namespace BarPointOfSaleSystem
         {
             List<decimal> menuprice = new List<decimal>();
             List<string> mName = new List<string>();
-
+            int i = 0;
             Menu menu = new Menu();
             dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            using (TableSelection getTable = new TableSelection())
+            using (StaffLogin staff =new StaffLogin())
             using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
-            using (SqlDataAdapter receipt = new SqlDataAdapter($"SELECT * FROM Menu WHERE Menu.menuName = '{menu.fooditem}'", myconnection))
+            using (SqlDataAdapter tables = new SqlDataAdapter($"SELECT * FROM Tables WHERE TableNumber = '{getTable.tble}'", myconnection))
+            using (SqlDataAdapter employees = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {staff.pin}", myconnection))
+
             {
-                DataTable grabOrder = new DataTable();
+                DataTable grabTables = new DataTable();
+                DataTable grabEmployees = new DataTable();
 
                 myconnection.Open();
-                receipt.Fill(grabOrder);
-                myconnection.Close();
+                tables.Fill(grabTables);
+                employees.Fill(grabEmployees);
 
-                for (int i = 0; i < grabOrder.Rows.Count; i++)
+
+                int employeesId = (int)grabEmployees.Rows[i]["EmployeeId"];
+                int tableId = (int)grabTables.Rows[i]["TableId"];
+                string employeeName = (string)grabEmployees.Rows[i]["FName"];
+                using (SqlDataAdapter orders = new SqlDataAdapter($"SELECT * FROM Orders JOIN Menu ON Orders.MenuId = Menu.MenuId WHERE TableId = '{tableId}' AND EmployeeId = '{employeesId}'", myconnection))
                 {
-                    decimal price = (decimal)grabOrder.Rows[i]["Price"];
-                    price = (decimal)Math.Round(price, 2);
-                    menuprice.Add(price);
-                    mName.Add(menu.fooditem);
-                    //billrtb.Text += (menu.fooditem + "   $" + price + Environment.NewLine);
+                    DataTable grabOrders = new DataTable();
+                    orders.Fill(grabOrders);
+                    for (int r = 0; r < grabOrders.Rows.Count; r++)
+                    {
+                        string menuname = (string)grabOrders.Rows[r]["menuName"];
+                        decimal price = (decimal)grabOrders.Rows[r]["Price"];
+                        price = (decimal)Math.Round(price, 2);
+                        menuprice.Add(price);
+                        mName.Add(menuname);
+
+                        
+                        //menuprice.Add(price);
+                        //mName.Add(menu.fooditem);
+                        //billrtb.Text += (menu.fooditem + "   $" + price + Environment.NewLine);
+                    }
+
+                    EmployeeNameLBL.Text = "Served By: " + employeeName;
                 }
-
-
+                myconnection.Close();
             }
-            foreach (string i in mName)
+            
+            foreach (string n in mName)
             {
                 foreach (decimal c in menuprice)
                 {
-                    billrtb.Text += (Environment.NewLine + i + "   $" + c + Environment.NewLine);
+                    billrtb.Text += (Environment.NewLine +  n + "   $" + c + Environment.NewLine);
                 }
             }
             //GrabOrder();
@@ -93,9 +114,9 @@ namespace BarPointOfSaleSystem
                     receipt.Fill(grabOrder);
                     myconnection.Close();
 
-                    for (int i = 0; i < grabOrder.Rows.Count; i++)
+                    for (int r = 0; r < grabOrder.Rows.Count; r++)
                     {
-                        decimal price = (decimal)grabOrder.Rows[i]["Price"];
+                        decimal price = (decimal)grabOrder.Rows[r]["Price"];
                         price = (decimal)Math.Round(price,2);
                         billrtb.Text += ("   -" +items + "   $" + price + Environment.NewLine);
                         
