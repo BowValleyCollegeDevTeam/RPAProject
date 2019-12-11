@@ -36,6 +36,44 @@ namespace BarPointOfSaleSystem
             //this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
             getTopBar();
 
+
+
+
+            //dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            //SqlConnection myConnection = new SqlConnection(dbConnectionString);
+            //SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Employees", myConnection);
+            //DataSet set = new DataSet();
+
+            //SqlCommand cmd = new SqlCommand();
+            //myConnection.Open();
+            //cmd.Connection = myConnection;
+            //cmd.CommandText = "UPDATE Employees SET FName = 'BLUB' WHERE Employeeid = 4";
+            //cmd.ExecuteNonQuery();
+            //myConnection.Close();
+
+            //SqlConnection myConnection = new SqlConnection(dbConnectionString);
+            //SqlDataAdapter adapter = new SqlDataAdapter();
+            //string insertData = "UPDATE Employees SET City  VALUES (City = 'Blub');";
+            //myConnection.Open();
+            //adapter.UpdateCommand = myConnection.CreateCommand();
+            //adapter.UpdateCommand.CommandText = insertData;
+            //adapter.UpdateCommand.ExecuteNonQuery();
+            //MessageBox.Show("Completed");
+            //myConnection.Close();
+
+            //SqlConnection myconnection = new SqlConnection(dbConnectionString);
+            //SqlCommand insert = new SqlCommand("UPDATE Employees SET City = 'BLUB' WHERE Employeeid = 4", myconnection);
+            //SqlDataReader dataReader;
+            //myconnection.Open();
+            //dataReader = insert.ExecuteReader();
+            //MessageBox.Show("Data Updated");6
+            //while (dataReader.Read())
+            //{
+
+            //}
+            //myconnection.Close();
+
+
         }
 
         private void TableSelectionClosing(object sender, FormClosingEventArgs e)

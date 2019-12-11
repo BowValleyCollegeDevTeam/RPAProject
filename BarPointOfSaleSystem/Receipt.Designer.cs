@@ -42,9 +42,9 @@
             // 
             // BillListBox
             // 
-            this.BillListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BillListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillListBox.FormattingEnabled = true;
-            this.BillListBox.ItemHeight = 25;
+            this.BillListBox.ItemHeight = 20;
             this.BillListBox.Location = new System.Drawing.Point(49, 97);
             this.BillListBox.Name = "BillListBox";
             this.BillListBox.Size = new System.Drawing.Size(285, 504);
