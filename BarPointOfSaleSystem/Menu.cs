@@ -200,6 +200,34 @@ namespace BarPointOfSaleSystem
             Button btn = (Button)sender;
             string drinkClicked = btn.Text;
             MessageBox.Show(drinkClicked);
+
+
+            using (StaffLogin staffLogin = new StaffLogin())
+            using (TableSelection tableSelection = new TableSelection())
+            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,MenuId,EmployeeId,CustomerId) SELECT MenuId,EmployeeId,TableId, CustomerId FROM Menu join Orders on Menu.MenuId = Orders.MenuId " +
+                "join Employees on Orders.EmployeeId = Employee.EmployeeId join [Tables] on Orders.TableId = [Tables].TableId join Customers on Orders.CustomerId = Customers.CustomerId  " +
+                "WHERE @btntext = Menu.menuName, @tablename = Tables.TableNumber, @empname = Employees.PIN, @Custid = Customers.Customerid", myConnection))
+            {
+                insertdrinks.Parameters.Add("@btntext", System.Data.SqlDbType.NVarChar);
+                insertdrinks.Parameters.Add("@tablename", System.Data.SqlDbType.NVarChar);
+                insertdrinks.Parameters.Add("@empname", System.Data.SqlDbType.Int);
+                insertdrinks.Parameters.Add("@Custid", System.Data.SqlDbType.Int);
+
+                insertdrinks.Parameters["@btntext"].Value = btn.Text;
+                insertdrinks.Parameters["@tablename"].Value = tableSelection.tble;
+                insertdrinks.Parameters["@empname"].Value = staffLogin.pin;
+                //insertdrinks.Parameters["@cutid"].Value = ;
+
+                myConnection.Open();
+
+                insertdrinks.ExecuteNonQuery();
+
+                myConnection.Close();
+                //insertdrinks();
+            }
+
+
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -217,5 +245,7 @@ namespace BarPointOfSaleSystem
           
 
         }
+
+
     }
 }

@@ -15,13 +15,17 @@ namespace BarPointOfSaleSystem
     public partial class TableSelection : Form
     {
         private string dbConnectionString;
-
+        public static string tblname;
 
         public Label TableName = new Label();
 
         public TableSelection()
         {
             InitializeComponent();
+        }
+        public string tble
+        {
+            get { return tblname; }
         }
 
         private void FormCenterToScreen()
@@ -36,42 +40,6 @@ namespace BarPointOfSaleSystem
             //this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
             getTopBar();
 
-
-
-
-            //dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
-            //SqlConnection myConnection = new SqlConnection(dbConnectionString);
-            //SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Employees", myConnection);
-            //DataSet set = new DataSet();
-
-            //SqlCommand cmd = new SqlCommand();
-            //myConnection.Open();
-            //cmd.Connection = myConnection;
-            //cmd.CommandText = "UPDATE Employees SET FName = 'BLUB' WHERE Employeeid = 4";
-            //cmd.ExecuteNonQuery();
-            //myConnection.Close();
-
-            //SqlConnection myConnection = new SqlConnection(dbConnectionString);
-            //SqlDataAdapter adapter = new SqlDataAdapter();
-            //string insertData = "UPDATE Employees SET City  VALUES (City = 'Blub');";
-            //myConnection.Open();
-            //adapter.UpdateCommand = myConnection.CreateCommand();
-            //adapter.UpdateCommand.CommandText = insertData;
-            //adapter.UpdateCommand.ExecuteNonQuery();
-            //MessageBox.Show("Completed");
-            //myConnection.Close();
-
-            //SqlConnection myconnection = new SqlConnection(dbConnectionString);
-            //SqlCommand insert = new SqlCommand("UPDATE Employees SET City = 'BLUB' WHERE Employeeid = 4", myconnection);
-            //SqlDataReader dataReader;
-            //myconnection.Open();
-            //dataReader = insert.ExecuteReader();
-            //MessageBox.Show("Data Updated");6
-            //while (dataReader.Read())
-            //{
-
-            //}
-            //myconnection.Close();
 
 
         }
@@ -129,94 +97,96 @@ namespace BarPointOfSaleSystem
         }
         private void TableSelectionClick(object sender, EventArgs e)
         {
+            tblname = TableName.Text;
             if (sender == Table1 && TableName.Text == "")
             {
                 TableName.Text = Table1.Name;
                 CreateOrderMenu();
+                createcust();
             }
 
             else if (sender == Table2 && TableName.Text == "")
             {
                 TableName.Text = Table2.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table3 && TableName.Text == "")
             {
                 TableName.Text = Table3.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table4 && TableName.Text == "")
             {
                 TableName.Text = Table4.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table5 && TableName.Text == "")
             {
                 TableName.Text = Table5.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table6 && TableName.Text == "")
             {
                 TableName.Text = Table6.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table7 && TableName.Text == "")
             {
                 TableName.Text = Table7.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table8 && TableName.Text == "")
             {
                 TableName.Text = Table8.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == Table9 && TableName.Text == "")
             {
                 TableName.Text = Table9.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == BarStool1 && TableName.Text == "")
             {
                 TableName.Text = BarStool1.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == BarStool2 && TableName.Text == "")
             {
                 TableName.Text = BarStool2.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == BarStool3 && TableName.Text == "")
             {
                 TableName.Text = BarStool3.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else if (sender == BarStool4 && TableName.Text == "")
             {
                 TableName.Text = BarStool4.Name;
                 CreateOrderMenu();
-
+                createcust();
             }
 
             else
@@ -229,6 +199,18 @@ namespace BarPointOfSaleSystem
 
                 catch { }
             }
+        }
+        private void createcust()
+        {
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            int counter = 2;
+            SqlConnection myConnection = new SqlConnection(str);
+            myConnection.Open();
+            SqlCommand insertData = new SqlCommand("insert into Customers values('" + counter + "');", myConnection);
+            int o = insertData.ExecuteNonQuery();
+            MessageBox.Show(o + ":Record has been Inserted");
+            myConnection.Close();
+            counter++;
         }
 
 
