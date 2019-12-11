@@ -94,17 +94,10 @@ namespace BarPointOfSaleSystem
                     foodButton.Text = foodList[i];
                     foodPanel.Controls.Add(foodButton);
                     foodButton.Dock = DockStyle.Left;
-                    foodButton.Click += new EventHandler(foodButton_Click);
-                    buttonName = foodButton.CommandName;
                 }
                
 
             }
-        }
-
-        private void foodButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(buttonName);
         }
 
         private void GetDrinks()
