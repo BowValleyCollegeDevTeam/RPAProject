@@ -47,6 +47,8 @@
             this.barPOSSystemDataDataSet = new BarPointOfSaleSystem.BarPOSSystemDataDataSet();
             this.employeesTableAdapter = new BarPointOfSaleSystem.BarPOSSystemDataDataSetTableAdapters.EmployeesTableAdapter();
             this.topInfoBar1 = new BarPointOfSaleSystem.TopInfoBar();
+            this.TablesBinding = new System.Windows.Forms.BindingSource(this.components);
+            this.tablesTableAdapter = new BarPointOfSaleSystem.BarPOSSystemDataDataSetTableAdapters.TablesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Table9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Table6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Table8)).BeginInit();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BarSidePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TablesBinding)).BeginInit();
             this.SuspendLayout();
             // 
             // Table9
@@ -266,6 +269,16 @@
             this.topInfoBar1.Size = new System.Drawing.Size(1052, 32);
             this.topInfoBar1.TabIndex = 22;
             // 
+            // TablesBinding
+            // 
+            this.TablesBinding.DataMember = "Tables";
+            this.TablesBinding.DataSource = this.barPOSSystemDataDataSet;
+            this.TablesBinding.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // tablesTableAdapter
+            // 
+            this.tablesTableAdapter.ClearBeforeFill = true;
+            // 
             // TableSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +323,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BarSidePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TablesBinding)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +347,7 @@
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private BarPOSSystemDataDataSet barPOSSystemDataDataSet;
         private BarPOSSystemDataDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+        private System.Windows.Forms.BindingSource TablesBinding;
+        private BarPOSSystemDataDataSetTableAdapters.TablesTableAdapter tablesTableAdapter;
     }
 }

@@ -32,9 +32,12 @@ namespace BarPointOfSaleSystem
 
         private void TableSelection_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'barPOSSystemDataDataSet._Tables' table. You can move, or remove it, as needed.
+            this.tablesTableAdapter.Fill(this.barPOSSystemDataDataSet._Tables);
             // TODO: This line of code loads data into the 'barPOSSystemDataDataSet.Employees' table. You can move, or remove it, as needed.
             //this.employeesTableAdapter.Fill(this.barPOSSystemDataDataSet.Employees);
             getTopBar();
+           
 
         }
 
@@ -91,10 +94,21 @@ namespace BarPointOfSaleSystem
         }
         private void TableSelectionClick(object sender, EventArgs e)
         {
+           
+
+
             if (sender == Table1 && TableName.Text == "")
             {
+                bool tre = true;
                 TableName.Text = Table1.Name;
+                dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+                SqlConnection myConnection = new SqlConnection(dbConnectionString);
+                myConnection.Open();
+                SqlCommand insertData = new SqlCommand($"UPDATE Tables SET Active = 1 WHERE TableNumber = 'Table1'", myConnection);
+                insertData.ExecuteNonQuery();
+                myConnection.Close();
                 CreateOrderMenu();
+
             }
 
             else if (sender == Table2 && TableName.Text == "")
@@ -328,6 +342,11 @@ namespace BarPointOfSaleSystem
             {
                 BarStool4.Image = Properties.Resources.BarStoolInActive;
             }
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

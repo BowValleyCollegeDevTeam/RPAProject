@@ -233,7 +233,12 @@
             // tableAdapterManager1
             // 
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CustomersTableAdapter = null;
             this.tableAdapterManager1.EmployeesTableAdapter = this.employeesTableAdapter1;
+            this.tableAdapterManager1.MenuTableAdapter = null;
+            this.tableAdapterManager1.OptionsTableAdapter = null;
+            this.tableAdapterManager1.OrdersTableAdapter = null;
+            this.tableAdapterManager1.TablesTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = BarPointOfSaleSystem.BarPOSSystemDataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // StaffLogin
@@ -260,6 +265,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StaffSignClosing);
+            this.Load += new System.EventHandler(this.StaffLogin_Load_1);
             this.Click += new System.EventHandler(this.PasscodeButtonClick);
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet1)).EndInit();

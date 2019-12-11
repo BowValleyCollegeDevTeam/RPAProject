@@ -201,5 +201,10 @@ namespace BarPointOfSaleSystem
         {
             Application.Exit();
         }
+
+        private void StaffLogin_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
