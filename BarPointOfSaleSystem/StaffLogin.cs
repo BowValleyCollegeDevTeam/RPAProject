@@ -27,10 +27,9 @@ namespace BarPointOfSaleSystem
             get { return dpin.ToString(); }
         }
 
-        private void StaffLogin_Load(object sender, EventArgs e)
-        {
-            
-        }
+
+        //Takes the PIN codes from the employees table And validates
+        //Whether the pin code is entered correctly
         public void getEmployeePinLogin()
         {
             dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
@@ -71,6 +70,7 @@ namespace BarPointOfSaleSystem
 
             }
         }
+
 
         private void PasscodeButtonClick(object sender, EventArgs e)
         {
@@ -116,6 +116,8 @@ namespace BarPointOfSaleSystem
 
         }
 
+
+        //Creates references to the Number pads so that user is able to use it.
         private void NumPadKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.NumPad0 || e.KeyCode == Keys.D0)
@@ -176,7 +178,7 @@ namespace BarPointOfSaleSystem
                 }
                 catch { }
             }
-
+            //Validates the user's password 
             else if (e.KeyCode == Keys.Enter)
             {
                 if (StaffPasscodeInputBox.Text == "1234")

@@ -21,7 +21,7 @@ namespace BarPointOfSaleSystem
         }
 
 
-
+        //Creates checkboxes based on the options table
         private void GetOptions()
         {
 
@@ -54,6 +54,9 @@ namespace BarPointOfSaleSystem
             }
         }
 
+
+
+        //Creates checkboxes based on the options table if the food is a Side menu
         private void GetSides()
         {
            
@@ -100,6 +103,8 @@ namespace BarPointOfSaleSystem
 
         }
 
+
+        //This button will add the order to the receipt if the food is checked
         private void button1_Click(object sender, EventArgs e)
         {
             foreach (Control c in panel1.Controls)

@@ -12,12 +12,14 @@ namespace BarPointOfSaleSystem
 {
     public partial class TopInfoBar : UserControl
     {
+        //Starts the timer
         public TopInfoBar()
         {
             InitializeComponent();
             TimeTimerTicker.Start();
         }
 
+        //Creates and displays current time
         private void TimeTimerTicker_Tick_1(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;

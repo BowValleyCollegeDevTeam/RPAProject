@@ -20,7 +20,7 @@ namespace BarPointOfSaleSystem
             InitializeComponent();
         }
 
-
+        //Splits the bill
         private void Billsplitways_ValueChanged(object sender, EventArgs e)
         {
             var splitways = Billsplitways.Value + 1;
@@ -41,6 +41,8 @@ namespace BarPointOfSaleSystem
             // this if statement is incase num updown is set to zero
         }
 
+
+        //Receipt will show the ordered menus, the server's name and the price/total
         private void Receipt_Load(object sender, EventArgs e)
         {
             List<decimal> menuprice = new List<decimal>();
