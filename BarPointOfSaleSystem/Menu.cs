@@ -72,7 +72,7 @@ namespace BarPointOfSaleSystem
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lemon\source\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection selection = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))
@@ -223,7 +223,7 @@ namespace BarPointOfSaleSystem
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lemon\source\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection section = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))

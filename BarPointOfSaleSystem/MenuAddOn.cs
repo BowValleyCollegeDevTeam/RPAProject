@@ -59,9 +59,9 @@ namespace BarPointOfSaleSystem
         //Creates checkboxes based on the options table if the food is a Side menu
         private void GetSides()
         {
-           
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (Menu menu = new Menu())
-            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlConnection myConnection = new SqlConnection(str))
             using (SqlDataAdapter menuSides = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 1 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
                 DataTable getSides = new DataTable();

@@ -47,7 +47,7 @@ namespace BarPointOfSaleSystem
             List<string> mName = new List<string>();
             int i = 0;
             Menu menu = new Menu();
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (TableSelection getTable = new TableSelection())
             using (StaffLogin staff = new StaffLogin())
             using (SqlConnection myconnection = new SqlConnection(str))
@@ -138,7 +138,7 @@ namespace BarPointOfSaleSystem
         private void paybtn_Click(object sender, EventArgs e)
         {
             int i = 0;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (TableSelection getTable = new TableSelection())
             using (StaffLogin staff = new StaffLogin())
             using (SqlConnection myConnection = new SqlConnection(str))
