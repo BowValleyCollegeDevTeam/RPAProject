@@ -1,1 +1,1 @@
-﻿INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES (4 , 1, 23);
+﻿SELECT * FROM Orders JOIN Menu ON Orders.MenuId = Menu.MenuId WHERE TableId = 7 AND EmployeeId =1

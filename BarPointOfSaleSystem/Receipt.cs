@@ -14,7 +14,7 @@ namespace BarPointOfSaleSystem
 {
     public partial class Receipt : Form
     {
-        string dbconnectionstring;
+
         public Receipt()
         {
             InitializeComponent();
@@ -47,10 +47,10 @@ namespace BarPointOfSaleSystem
             List<string> mName = new List<string>();
             int i = 0;
             Menu menu = new Menu();
-            dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (TableSelection getTable = new TableSelection())
             using (StaffLogin staff =new StaffLogin())
-            using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
+            using (SqlConnection myconnection = new SqlConnection(str))
             using (SqlDataAdapter tables = new SqlDataAdapter($"SELECT * FROM Tables WHERE TableNumber = '{getTable.tble}'", myconnection))
             using (SqlDataAdapter employees = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {staff.pin}", myconnection))
 
@@ -89,15 +89,19 @@ namespace BarPointOfSaleSystem
                 myconnection.Close();
             }
             decimal totalBill = 0;
-            foreach (string n in mName)
+            for(int c = 0; c < mName.Count; c++)
             {
-                foreach (decimal c in menuprice)
-                {
-                    billrtb.Text += (n + "   $" + c + Environment.NewLine);
-                    totalBill += c;
-
-                }
+                billrtb.Text += (mName[c] +"   $" + menuprice[c] + Environment.NewLine);
             }
+            //foreach (string n in mName)
+            //{
+            //    billrtb.Text += (n);
+            //}
+            foreach (decimal c in menuprice)
+            {
+                totalBill += c;
+            }
+
             TotalNumberLBL.Text = totalBill.ToString();
 
             //GrabOrder();
@@ -107,9 +111,7 @@ namespace BarPointOfSaleSystem
             foreach (var items in MenuAddOn.CheckedOption)
             {
                 //BillListBox.Items.Add(items);
-
-                dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
-                using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
+                using (SqlConnection myconnection = new SqlConnection(str))
                 using (SqlDataAdapter receipt = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Menu.MenuId = Options.MenuId WHERE Options.[Name] = '{items}' AND Menu.menuName = '{menu.fooditem}'", myconnection))
                 {
                     DataTable grabOrder = new DataTable();
@@ -133,40 +135,47 @@ namespace BarPointOfSaleSystem
             
         }
 
-        private void GrabOrder()
+        private void paybtn_Click(object sender, EventArgs e)
         {
-            dbconnectionstring = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
-            using (SqlConnection myconnection = new SqlConnection(dbconnectionstring))
-            using (SqlDataAdapter receipt = new SqlDataAdapter("SELECT Category, [Name], Price FROM Menu Join Orders ON Menu.MenuId = Orders.MenuId Join Employees on Employees.EmployeeId = Orders.EmployeeId join[Tables] on[Tables].TableId = Orders.TableId join Customers on Customers.CustomerId = Orders.CustomerId WHERE Orders.TableId = 10; ", myconnection))
+            int i = 0;
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            using (TableSelection getTable = new TableSelection())
+            using (StaffLogin staff = new StaffLogin())
+            using (SqlConnection myConnection = new SqlConnection(str))
+            using (SqlDataAdapter tables = new SqlDataAdapter($"SELECT * FROM Tables WHERE TableNumber = '{getTable.tble}'", myConnection))
+            using (SqlDataAdapter employees = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {staff.pin}", myConnection))
+
             {
-                DataTable grabOrder = new DataTable();
+                DataTable grabTables = new DataTable();
+                DataTable grabEmployees = new DataTable();
 
-                myconnection.Open();
-                receipt.Fill(grabOrder);
-                myconnection.Close();
+                myConnection.Open();
+                tables.Fill(grabTables);
+                employees.Fill(grabEmployees);
 
 
-                List<decimal> prices = new List<decimal>();
-                for (int i = 0; i < grabOrder.Rows.Count; i++)
+                int employeesId = (int)grabEmployees.Rows[i]["EmployeeId"];
+                int tableId = (int)grabTables.Rows[i]["TableId"];
+                string employeeName = (string)grabEmployees.Rows[i]["FName"];
+                using (SqlDataAdapter orders = new SqlDataAdapter($"SELECT * FROM Orders WHERE TableId = '{tableId}' AND EmployeeId = '{employeesId}'", myConnection))
                 {
-                    string name = (string)grabOrder.Rows[i]["Name"];
-                    string cat = (string)grabOrder.Rows[i]["Category"];
-                    decimal price = (decimal)grabOrder.Rows[i]["Price"];
+                    DataTable grabOrders = new DataTable();
+                    orders.Fill(grabOrders);
+                    for (int r = 0; r < grabOrders.Rows.Count; r++)
+                    {
+                        int orderid = (int)grabOrders.Rows[r]["OrderId"];
 
-                    billrtb.Text += ($"{name,-5} {cat,-5} {price,-5}");
 
-                    prices.Add(price);
-                   
-
+                        SqlCommand deleteOrders = new SqlCommand("DELETE FROM Orders WHERE OrderId = "+ orderid +";", myConnection);
+                        deleteOrders.ExecuteNonQuery();
+                    }
+                    myConnection.Close();
 
                 }
-                // go into the database and grab the selected items for the certain table number
-                var totalamount = prices.Sum();
-                totalamount = Math.Round(totalamount, 2);
-
-                TotalNumberLBL.Text = totalamount.ToString();
+                
             }
-
+            this.Close();
+            
         }
     }
 }
