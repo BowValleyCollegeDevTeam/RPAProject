@@ -17,7 +17,6 @@ namespace BarPointOfSaleSystem
     {
         private string dbConnectionString;
         public static string dfooditem;
-
         public Menu()
         {
             InitializeComponent();
@@ -69,65 +68,52 @@ namespace BarPointOfSaleSystem
         //When a certain menu is clicked, the Menu add on will appear otherwise, the button will display 'added to order'
         private void foodButton_Click(object sender, EventArgs e)
         {
+  
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lemon\source\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection selection = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))
-            using (SqlDataAdapter menuFood = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Food' AND Type != 'Starter' AND menuName = '{dfooditem}'", myConnection))
+            using (SqlDataAdapter menuFood = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Food' AND Type != 'Starter'", myConnection))
             using (SqlDataAdapter tableloc = new SqlDataAdapter($"SELECT * FROM [Tables] WHERE TableNumber = '{selection.tble}'", myConnection))
             using (SqlDataAdapter employee = new SqlDataAdapter($"SELECT * FROM Employees WHERE  PIN = {login.pin}", myConnection))
             {
                 DataTable getFood = new DataTable();
-                DataTable getDrinks = new DataTable();
+                DataTable getTable = new DataTable();
                 DataTable getemployees = new DataTable();
 
 
 
                 myConnection.Open();
                 menuFood.Fill(getFood);
-                tableloc.Fill(getDrinks);
+                tableloc.Fill(getTable);
                 employee.Fill(getemployees); 
 
                 
                 Button btn = (Button)sender;
                 dfooditem = btn.Text;
-                for (int f = 0; f < getFood.Rows.Count; f++)
+                for (int f = 0; f < getTable.Rows.Count; f++)
                 {
                     string foodName = (string)getFood.Rows[f]["menuName"];
-                    if (dfooditem == foodName)
-                    {
-                        MenuAddOn mao = new MenuAddOn();
-                        mao.Show();
-                        mao.foodNamelbl.Text = dfooditem;
 
-                        tableId = (int)getDrinks.Rows[f]["TableId"];
-                        employeeId = (int)getemployees.Rows[f]["EmployeeId"];
-                        menuId = (int)getFood.Rows[f]["MenuId"];
-
-                        //MessageBox.Show(tableId.ToString());
-                        //MessageBox.Show(employeeId.ToString());
-                        //MessageBox.Show(menuId.ToString());
-
-
-                        SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES ('" + tableId + "' , '" + employeeId + "', '" + menuId + "');", myConnection);
-                        insertdrinks.ExecuteNonQuery();
-
-                        myConnection.Close();
-                        MessageBox.Show(dfooditem + " has been added to Order");
-                        // mao.foodNamelbl.TextAlign = ContentAlignment.TopCenter;
-                        // mao.foodNamelbl.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (Size.Height / 2));
-                    }
+                    MenuAddOn mao = new MenuAddOn();
+                    mao.Show();
+                    mao.foodNamelbl.Text = foodName;
+                    tableId = (int)getTable.Rows[f]["TableId"];
+                    employeeId = (int)getemployees.Rows[f]["EmployeeId"];
+                    menuId = (int)getFood.Rows[f]["MenuId"];
       
+                    SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES ('" + tableId + "' , '" + employeeId + "', '" + menuId + "');", myConnection);
+                    insertdrinks.ExecuteNonQuery();
 
+                    myConnection.Close();
+                        MessageBox.Show(foodName + " has been added to Order");
                 }
 
-                //Button btn = (Button)sender;
-                //string foodClicked = btn.Text;
-                //MessageBox.Show(foodClicked);
             }
+
             
             using (StaffLogin login = new StaffLogin())
             using (TableSelection selection = new TableSelection())
@@ -223,7 +209,7 @@ namespace BarPointOfSaleSystem
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lemon\source\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection section = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))
