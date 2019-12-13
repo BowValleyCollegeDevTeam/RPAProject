@@ -117,7 +117,6 @@
             this.Controls.Add(this.foodPanel);
             this.Name = "Menu";
             this.Text = "Menu";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloseMenu);
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barPOSSystemDataDataSet)).EndInit();

@@ -32,7 +32,7 @@ namespace BarPointOfSaleSystem
 
             if (splitways > 0)
             {
-                TotalPerBillNumberLBL.Text = "$"+ eachbill.ToString();
+                TotalPerBillNumberLBL.Text = "$" + eachbill.ToString();
             }
             else
             {
@@ -49,7 +49,7 @@ namespace BarPointOfSaleSystem
             Menu menu = new Menu();
             string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (TableSelection getTable = new TableSelection())
-            using (StaffLogin staff =new StaffLogin())
+            using (StaffLogin staff = new StaffLogin())
             using (SqlConnection myconnection = new SqlConnection(str))
             using (SqlDataAdapter tables = new SqlDataAdapter($"SELECT * FROM Tables WHERE TableNumber = '{getTable.tble}'", myconnection))
             using (SqlDataAdapter employees = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {staff.pin}", myconnection))
@@ -78,7 +78,7 @@ namespace BarPointOfSaleSystem
                         menuprice.Add(price);
                         mName.Add(menuname);
 
-                        
+
                         //menuprice.Add(price);
                         //mName.Add(menu.fooditem);
                         //billrtb.Text += (menu.fooditem + "   $" + price + Environment.NewLine);
@@ -89,9 +89,9 @@ namespace BarPointOfSaleSystem
                 myconnection.Close();
             }
             decimal totalBill = 0;
-            for(int c = 0; c < mName.Count; c++)
+            for (int c = 0; c < mName.Count; c++)
             {
-                billrtb.Text += (mName[c] +"   $" + menuprice[c] + Environment.NewLine);
+                billrtb.Text += (mName[c] + "   $" + menuprice[c] + Environment.NewLine);
             }
             //foreach (string n in mName)
             //{
@@ -125,14 +125,14 @@ namespace BarPointOfSaleSystem
                     //    decimal price = (decimal)grabOrder.Rows[r]["Price"];
                     //    price = (decimal)Math.Round(price,2);
                     //    billrtb.Text += ("   -" +items + "   $" + price + Environment.NewLine);
-                        
+
                     //}
 
 
                 }
             }
 
-            
+
         }
 
         private void paybtn_Click(object sender, EventArgs e)
@@ -166,16 +166,16 @@ namespace BarPointOfSaleSystem
                         int orderid = (int)grabOrders.Rows[r]["OrderId"];
 
 
-                        SqlCommand deleteOrders = new SqlCommand("DELETE FROM Orders WHERE OrderId = "+ orderid +";", myConnection);
+                        SqlCommand deleteOrders = new SqlCommand("DELETE FROM Orders WHERE OrderId = " + orderid + ";", myConnection);
                         deleteOrders.ExecuteNonQuery();
                     }
                     myConnection.Close();
 
                 }
-                
+
             }
             this.Close();
-            
+
         }
     }
 }

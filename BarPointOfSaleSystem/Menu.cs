@@ -27,52 +27,9 @@ namespace BarPointOfSaleSystem
             get { return dfooditem; }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FoodBtns Fbtns = new FoodBtns();
-            Fbtns.Dock = DockStyle.Top;
-            foodPanel.Controls.Add(Fbtns);
 
-            bool BtnClicked = true;
-            //If Food Button is clicked again, the panel will be cleared.
-            if (BtnClicked)
-            {
-                BtnClicked = false;
-            }
-            else
-            {
-                BtnClicked = true;
-                foodPanel.Controls.Clear();
-            }
 
-        }
-
-        
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DrinksBtns Dbtns = new DrinksBtns();
-            Dbtns.Dock = DockStyle.Top;
-            drinksPanel.Controls.Add(Dbtns);
-
-            bool BtnClicked2 = true;
-            //If Drink Button is clicked again, the panel will be cleared.
-            if (BtnClicked2)
-            {
-                BtnClicked2 = false;
-            }
-            else
-            {
-                BtnClicked2 = true;
-                drinksPanel.Controls.Clear();
-            }
-
-        }
-
-        private void CloseMenu(object sender, FormClosingEventArgs e)
-        {
-           
-        }
-     
+        //Creates multiple buttons based on the foods table
         private void GetFood()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
@@ -107,12 +64,15 @@ namespace BarPointOfSaleSystem
             }
         }
 
+
+
+        //When a certain menu is clicked, the Menu add on will appear otherwise, the button will display 'added to order'
         private void foodButton_Click(object sender, EventArgs e)
         {
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lemon\source\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection selection = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))
@@ -215,6 +175,9 @@ namespace BarPointOfSaleSystem
             }
         }
 
+
+
+        //Creates multiple buttons based on the drinks table
         private void GetDrinks()
         {
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
@@ -249,6 +212,8 @@ namespace BarPointOfSaleSystem
             }
         }
 
+
+        //Takes the selected drink and stores it into a new table
         private void drinksButton_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -258,7 +223,7 @@ namespace BarPointOfSaleSystem
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Lemon\source\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection section = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))

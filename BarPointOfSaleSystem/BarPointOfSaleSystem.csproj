@@ -75,18 +75,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BarPOSSystemDataDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DrinksBtns.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DrinksBtns.Designer.cs">
-      <DependentUpon>DrinksBtns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FoodBtns.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FoodBtns.Designer.cs">
-      <DependentUpon>FoodBtns.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,12 +120,6 @@
     <Compile Include="TopInfoBar.Designer.cs">
       <DependentUpon>TopInfoBar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DrinksBtns.resx">
-      <DependentUpon>DrinksBtns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FoodBtns.resx">
-      <DependentUpon>FoodBtns.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>

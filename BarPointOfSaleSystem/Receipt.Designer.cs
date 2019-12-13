@@ -131,11 +131,11 @@
             // 
             // paybtn
             // 
-            this.paybtn.Location = new System.Drawing.Point(645, 504);
+            this.paybtn.Location = new System.Drawing.Point(680, 641);
             this.paybtn.Name = "paybtn";
-            this.paybtn.Size = new System.Drawing.Size(125, 23);
+            this.paybtn.Size = new System.Drawing.Size(108, 23);
             this.paybtn.TabIndex = 10;
-            this.paybtn.Text = "Pay for Order";
+            this.paybtn.Text = "Pay For Order";
             this.paybtn.UseVisualStyleBackColor = true;
             this.paybtn.Click += new System.EventHandler(this.paybtn_Click);
             // 
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 552);
+            this.ClientSize = new System.Drawing.Size(800, 676);
             this.Controls.Add(this.paybtn);
             this.Controls.Add(this.EmployeeNameLBL);
             this.Controls.Add(this.TotalPerBillNumberLBL);

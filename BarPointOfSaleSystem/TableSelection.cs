@@ -46,6 +46,8 @@ namespace BarPointOfSaleSystem
 
         }
 
+
+        //Re-opens staff log in when the table selection is closed
         private void TableSelectionClosing(object sender, FormClosingEventArgs e)
         {
             var StaffLogin = new StaffLogin();
@@ -53,6 +55,8 @@ namespace BarPointOfSaleSystem
             StaffLogin.Show();
         }
 
+
+        // Displays Server's name and current time at the top of application after server signs in
         public void getTopBar()
         {
             dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
@@ -78,6 +82,8 @@ namespace BarPointOfSaleSystem
             }
         }
 
+
+        //Creates the Order Menu Selection
         private void CreateOrderMenu()
         {
             //Changes The Width Of The Form When A Table Is Selected
@@ -97,6 +103,10 @@ namespace BarPointOfSaleSystem
             tableOrderMainMenu.Controls.Add(TableName);
             TableName.TextAlign = ContentAlignment.TopCenter;
         }
+
+
+        //Displays the Order Menu on the right side of the table selections where you can start
+        //adding Menu items
         private void TableSelectionClick(object sender, EventArgs e)
         {
             
@@ -205,6 +215,7 @@ namespace BarPointOfSaleSystem
       
 
 
+        //Sets the hover image for the table selections
         private void TableSelectionMouseHover(object sender, EventArgs e)
         {
             if (sender == Table1)
@@ -274,6 +285,9 @@ namespace BarPointOfSaleSystem
 
         }
 
+
+
+        //Image is set to default when the user stops hovering on the table
         private void TableSelcetionMouseLeave(object sender, EventArgs e)
         {
             if (sender == Table1)
