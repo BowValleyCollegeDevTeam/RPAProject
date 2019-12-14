@@ -14,6 +14,7 @@ namespace BarPointOfSaleSystem
 {
     public partial class Receipt : Form
     {
+        public static decimal totalBill;
 
         public Receipt()
         {
@@ -25,7 +26,7 @@ namespace BarPointOfSaleSystem
         {
             var splitways = Billsplitways.Value + 1;
             // each number on the num up down bar  will add one because if the bar is at one you'll be spliting with another person etc.
-            var total = Convert.ToDecimal(TotalNumberLBL.Text);
+            var total = totalBill;
 
             var eachbill = total / splitways;
             eachbill = Math.Round(eachbill, 2);
@@ -74,7 +75,7 @@ namespace BarPointOfSaleSystem
                     {
                         string menuname = (string)grabOrders.Rows[r]["menuName"];
                         decimal price = (decimal)grabOrders.Rows[r]["Price"];
-                        //price = (decimal)Math.Round(price, 2);
+                        price = (decimal)Math.Round(price, 2);
                         menuprice.Add(price);
                         mName.Add(menuname);
 
@@ -88,7 +89,7 @@ namespace BarPointOfSaleSystem
                 }
                 myconnection.Close();
             }
-            decimal totalBill = 0;
+ 
             for (int c = 0; c < mName.Count; c++)
             {
                 billrtb.Text += (mName[c] + "   $" + menuprice[c] + Environment.NewLine);
@@ -99,13 +100,14 @@ namespace BarPointOfSaleSystem
             //}
             foreach (decimal c in menuprice)
             {
-                totalBill += c;
+                totalBill +=  c;
             }
 
-            TotalNumberLBL.Text = totalBill.ToString();
+
+            TotalNumberLBL.Text = "$" + totalBill.ToString();
 
             //GrabOrder();
-            TotalPerBillNumberLBL.Text = "$" + TotalNumberLBL.Text;
+            TotalPerBillNumberLBL.Text = TotalNumberLBL.Text;
             // sets the 2 totals the same until the bill spliter is used
             //MenuAddOn.checkedOption.Add(BillListBox.Items);
             foreach (var items in MenuAddOn.CheckedOption)

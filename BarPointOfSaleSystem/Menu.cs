@@ -94,23 +94,29 @@ namespace BarPointOfSaleSystem
                 
                 Button btn = (Button)sender;
                 dfooditem = btn.Text;
-                for (int f = 0; f < getTable.Rows.Count; f++)
+                for (int f = 0; f < getFood.Rows.Count; f++)
                 {
                     string foodName = (string)getFood.Rows[f]["menuName"];
-
-                    MenuAddOn mao = new MenuAddOn();
-                    mao.Show();
-                    mao.foodNamelbl.Text = foodName;
-                    tableId = (int)getTable.Rows[f]["TableId"];
-                    employeeId = (int)getemployees.Rows[f]["EmployeeId"];
                     menuId = (int)getFood.Rows[f]["MenuId"];
-      
-                    SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES ('" + tableId + "' , '" + employeeId + "', '" + menuId + "');", myConnection);
-                    insertdrinks.ExecuteNonQuery();
+                    if (dfooditem == foodName)
+                    {
+                        for (int t = 0; t < getemployees.Rows.Count; t++)
+                        {
+                            tableId = (int)getTable.Rows[t]["TableId"];
+                            employeeId = (int)getemployees.Rows[t]["EmployeeId"];
 
-                    myConnection.Close();
+
+                            SqlCommand insertdrinks = new SqlCommand("INSERT INTO Orders (TableId,EmployeeId,MenuId) VALUES ('" + tableId + "' , '" + employeeId + "', '" + menuId + "');", myConnection);
+                            insertdrinks.ExecuteNonQuery();
+                        }
+                        MenuAddOn mao = new MenuAddOn();
+                        mao.Show();
+                        mao.foodNamelbl.Text = foodName;
+                        myConnection.Close();
                         MessageBox.Show(foodName + " has been added to Order");
+                    }
                 }
+   
 
             }
 
@@ -135,14 +141,14 @@ namespace BarPointOfSaleSystem
               
                 Button btn = (Button)sender;
                 string foodClicked = btn.Text;
-                for (int f = 0; f < getFood.Rows.Count; f++)
+                for (int a = 0; a < getFood.Rows.Count; a++)
                 {
-                    string foodName = (string)getFood.Rows[f]["menuName"];
+                    string foodName = (string)getFood.Rows[a]["menuName"];
                     if (foodClicked == foodName)
                     {
-                        tableId = (int)getDrinks.Rows[f]["TableId"];
-                        employeeId = (int)getemployees.Rows[f]["EmployeeId"];
-                        menuId = (int)getFood.Rows[f]["MenuId"];
+                        tableId = (int)getDrinks.Rows[a]["TableId"];
+                        employeeId = (int)getemployees.Rows[a]["EmployeeId"];
+                        menuId = (int)getFood.Rows[a]["MenuId"];
 
                         //MessageBox.Show(tableId.ToString());
                         //MessageBox.Show(employeeId.ToString());
