@@ -27,6 +27,7 @@ namespace BarPointOfSaleSystem
 
             using (Menu menu = new Menu())
             using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+                                                                            //Joins two tables together
             using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 0 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
                 DataTable getOptions = new DataTable();
@@ -59,9 +60,11 @@ namespace BarPointOfSaleSystem
         //Creates checkboxes based on the options table if the food is a Side menu
         private void GetSides()
         {
+            // allows you to access the db locally with your connection string
             string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (Menu menu = new Menu())
             using (SqlConnection myConnection = new SqlConnection(str))
+                                                                     //Joins two tables together
             using (SqlDataAdapter menuSides = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 1 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
                 DataTable getSides = new DataTable();
