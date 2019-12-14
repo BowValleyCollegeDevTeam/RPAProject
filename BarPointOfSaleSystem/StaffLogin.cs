@@ -32,42 +32,49 @@ namespace BarPointOfSaleSystem
         //Whether the pin code is entered correctly
         public void getEmployeePinLogin()
         {
-            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
-            string pin = StaffPasscodeInputBox.Text;
-            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
-            using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {pin}", myConnection))
+            try
             {
-                DataTable userPin = new DataTable();
-              
-                myConnection.Open();
-                employeePin.Fill(userPin);
-                myConnection.Close();
-                bool correct = false;
-                for (int row = 0; row < userPin.Rows.Count; row++)
+                dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+                string pin = StaffPasscodeInputBox.Text;
+                using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+                using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {pin}", myConnection))
                 {
-                    if (!DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
+                    DataTable userPin = new DataTable();
+
+                    myConnection.Open();
+                    employeePin.Fill(userPin);
+                    myConnection.Close();
+                    bool correct = false;
+                    for (int row = 0; row < userPin.Rows.Count; row++)
                     {
-                        dpin = (int)userPin.Rows[row]["PIN"];
-                        if (pin == dpin.ToString())
+                        if (!DBNull.Value.Equals(userPin.Rows[row]["PIN"]))
                         {
-                            var TableSelection = new TableSelection();
-                            Hide();
-                            TableSelection.Show();
-                            correct = true;
+                            dpin = (int)userPin.Rows[row]["PIN"];
+                            if (pin == dpin.ToString())
+                            {
+                                var TableSelection = new TableSelection();
+                                Hide();
+                                TableSelection.Show();
+                                correct = true;
+                            }
+
                         }
 
                     }
-
-                } 
-                if (correct == false)
-                {
-                    DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (PasscodeError == DialogResult.OK)
+                    if (correct == false)
                     {
-                        StaffPasscodeInputBox.Text = "";
+                        DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (PasscodeError == DialogResult.OK)
+                        {
+                            StaffPasscodeInputBox.Text = "";
+                        }
                     }
-                }
 
+                }
+            }
+            catch
+            {
+                DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

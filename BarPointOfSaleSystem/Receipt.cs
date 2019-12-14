@@ -176,6 +176,9 @@ namespace BarPointOfSaleSystem
                 }
 
             }
+            TotalNumberLBL.Text = "$" + "0.00";
+            TotalPerBillNumberLBL.Text = "$" + "0.00";
+            totalBill = 0;
             this.Close();
 
         }
