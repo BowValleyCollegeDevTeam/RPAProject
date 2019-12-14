@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 
 namespace BarPointOfSaleSystem
 {
+    // Before trying to load project change all of the str's to your connection string
     public partial class StaffLogin : Form
     {
         // so the variable doesn't change over time
