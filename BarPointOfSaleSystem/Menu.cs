@@ -31,7 +31,8 @@ namespace BarPointOfSaleSystem
         //Creates multiple buttons based on the foods table
         private void GetFood()
         {
-            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            using (SqlConnection myConnection = new SqlConnection(str))
             using (SqlDataAdapter menuFood = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Food'", myConnection))
             {
                 DataTable getFood = new DataTable();
@@ -172,7 +173,7 @@ namespace BarPointOfSaleSystem
         //Creates multiple buttons based on the drinks table
         private void GetDrinks()
         {
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (SqlConnection myConnection = new SqlConnection(str))
             using (SqlDataAdapter menuDrinks = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Drinks'", myConnection))
             {
@@ -216,7 +217,7 @@ namespace BarPointOfSaleSystem
             int tableId;
             int employeeId;
             int menuId;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (TableSelection section = new TableSelection())
             using (SqlConnection myConnection = new SqlConnection(str))

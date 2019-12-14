@@ -14,7 +14,7 @@ namespace BarPointOfSaleSystem
 {
     public partial class MenuAddOn : Form
     {
-        private string dbConnectionString;
+        
         public MenuAddOn()
         {
             InitializeComponent();
@@ -24,9 +24,9 @@ namespace BarPointOfSaleSystem
         //Creates checkboxes based on the options table
         private void GetOptions()
         {
-
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (Menu menu = new Menu())
-            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            using (SqlConnection myConnection = new SqlConnection(str))
                                                                             //Joins two tables together
             using (SqlDataAdapter menuOptions = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Options.MenuId = Menu.MenuId WHERE IsSide= 0 AND Menu.menuName ='{menu.fooditem}'", myConnection))
             {
@@ -61,7 +61,7 @@ namespace BarPointOfSaleSystem
         private void GetSides()
         {
             // allows you to access the db locally with your connection string
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (Menu menu = new Menu())
             using (SqlConnection myConnection = new SqlConnection(str))
                                                                      //Joins two tables together
@@ -100,7 +100,6 @@ namespace BarPointOfSaleSystem
 
         private void MenuAddOn_Load(object sender, EventArgs e)
         {
-            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
             GetOptions();
             GetSides();
 
