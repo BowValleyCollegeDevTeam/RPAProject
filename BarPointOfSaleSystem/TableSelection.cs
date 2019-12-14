@@ -13,18 +13,15 @@ using System.Configuration;
 namespace BarPointOfSaleSystem
 {
     public partial class TableSelection : Form
-    {
-        private string dbConnectionString;
-        
-        
-
+    {      
+        // makes sure that the label name stays the same
         public static Label TableName = new Label();
 
         public TableSelection()
         {
             InitializeComponent();
         }
-      
+        // makes sure that you can acces the Label from any form
         public string tble
         {
             get { return TableName.Text; }
@@ -59,8 +56,8 @@ namespace BarPointOfSaleSystem
         // Displays Server's name and current time at the top of application after server signs in
         public void getTopBar()
         {
-            dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
-            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            // allows you to access the db locally with your connection string
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (StaffLogin login = new StaffLogin())
             using (SqlConnection myConnection = new SqlConnection(str))
             using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {login.pin}", myConnection))
@@ -201,7 +198,7 @@ namespace BarPointOfSaleSystem
                 CreateOrderMenu();
                
             }
-
+            // sets the table name to blank
             else
             {
                 try
