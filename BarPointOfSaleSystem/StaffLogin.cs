@@ -12,16 +12,17 @@ using System.Data.SqlClient;
 
 namespace BarPointOfSaleSystem
 {
+    // Before trying to load project change all of the str's to your connection string
     public partial class StaffLogin : Form
     {
-        private string dbConnectionString;
+        // so the variable doesn't change over time
         public static int dpin;
 
         public StaffLogin()
         {
             InitializeComponent();
         }
-
+        // makes the static variable accessable from every form
         public string pin
         {
             get { return dpin.ToString(); }
@@ -32,11 +33,13 @@ namespace BarPointOfSaleSystem
         //Whether the pin code is entered correctly
         public void getEmployeePinLogin()
         {
+            // to catch the bug if someone doesn't enter any number into the login field and just selects enter
             try
             {
-                dbConnectionString = ConfigurationManager.ConnectionStrings["BarPointOfSaleSystem.Properties.Settings.BarPOSSystemDataConnectionString"].ConnectionString;
+                
                 string pin = StaffPasscodeInputBox.Text;
-                string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+                // uses the local connection string to grab data
+                string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
                 using (SqlConnection myConnection = new SqlConnection(str))
                 using (SqlDataAdapter employeePin = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {pin}", myConnection))
                 {
@@ -62,9 +65,11 @@ namespace BarPointOfSaleSystem
                         }
 
                     }
+                    //If the pin is incorrect it sends out this message
                     if (correct == false)
                     {
                         DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // if the previous if statement is correct it changes the input box to blank
                         if (PasscodeError == DialogResult.OK)
                         {
                             StaffPasscodeInputBox.Text = "";
@@ -73,13 +78,14 @@ namespace BarPointOfSaleSystem
 
                 }
             }
+            // once it catches this bug/error it displays this message
             catch
             {
                 DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
+        // ever time you enter number or click a button it adds it to the input box
         private void PasscodeButtonClick(object sender, EventArgs e)
         {
             try
@@ -91,7 +97,7 @@ namespace BarPointOfSaleSystem
 
             catch { }
         }
-
+        // once you hit the delete button it removes a number from the string
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             try
@@ -106,21 +112,7 @@ namespace BarPointOfSaleSystem
         {
             getEmployeePinLogin();
 
-            //if (StaffPasscodeInputBox.Text == "1234")
-            //{
-            //    var TableSelection = new TableSelection();
-            //    Hide();
-            //    TableSelection.Show();
-            //}
 
-            //else
-            //{
-            //    DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    if (PasscodeError == DialogResult.OK)
-            //    {
-            //        StaffPasscodeInputBox.Text = "";
-            //    }
-            //}
 
         }
 
@@ -177,7 +169,7 @@ namespace BarPointOfSaleSystem
             {
                 StaffPasscodeInputBox.Text += Button9.Text;
             }
-
+            // validates that you can use the delete key on your keyboard to delete a number
             else if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.Delete)
             {
                 try
@@ -186,27 +178,9 @@ namespace BarPointOfSaleSystem
                 }
                 catch { }
             }
-            //Validates the user's password 
-            else if (e.KeyCode == Keys.Enter)
-            {
-                if (StaffPasscodeInputBox.Text == "1234")
-                {
-                    var TableSelection = new TableSelection();
-                    Hide();
-                    TableSelection.Show();
-                }
-
-                else
-                {
-                    DialogResult PasscodeError = MessageBox.Show("Please Enter Valid Passcode", "Passcode Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (PasscodeError == DialogResult.OK)
-                    {
-                        StaffPasscodeInputBox.Text = "";
-                    }
-                }
-            }
+            
         }
-
+        // once the user clicks the x the application exits
         private void StaffSignClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
