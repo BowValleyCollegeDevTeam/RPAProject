@@ -14,7 +14,7 @@ namespace BarPointOfSaleSystem
 {
     public partial class Receipt : Form
     {
-        public static decimal totalBill;
+        public decimal totalBill;
 
         public Receipt()
         {
