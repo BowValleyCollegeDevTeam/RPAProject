@@ -47,7 +47,7 @@ namespace BarPointOfSaleSystem
             List<decimal> menuprice = new List<decimal>();
             List<string> mName = new List<string>();
             int i = 0;
-            Menu menu = new Menu();
+            Menu menu = new Menu();                     // allows you to access the db locally with your connection string
             string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (TableSelection getTable = new TableSelection())
             using (StaffLogin staff = new StaffLogin())
@@ -66,7 +66,7 @@ namespace BarPointOfSaleSystem
 
                 int employeesId = (int)grabEmployees.Rows[i]["EmployeeId"];
                 int tableId = (int)grabTables.Rows[i]["TableId"];
-                string employeeName = (string)grabEmployees.Rows[i]["FName"];
+                string employeeName = (string)grabEmployees.Rows[i]["FName"];            //Joins two tables together
                 using (SqlDataAdapter orders = new SqlDataAdapter($"SELECT * FROM Orders JOIN Menu ON Orders.MenuId = Menu.MenuId WHERE TableId = '{tableId}' AND EmployeeId = '{employeesId}'", myconnection))
                 {
                     DataTable grabOrders = new DataTable();
@@ -113,7 +113,7 @@ namespace BarPointOfSaleSystem
             foreach (var items in MenuAddOn.CheckedOption)
             {
                 //BillListBox.Items.Add(items);
-                using (SqlConnection myconnection = new SqlConnection(str))
+                using (SqlConnection myconnection = new SqlConnection(str))                      //Joins two tables together
                 using (SqlDataAdapter receipt = new SqlDataAdapter($"SELECT * FROM Options JOIN Menu ON Menu.MenuId = Options.MenuId WHERE Options.[Name] = '{items}' AND Menu.menuName = '{menu.fooditem}'", myconnection))
                 {
                     DataTable grabOrder = new DataTable();
@@ -139,11 +139,11 @@ namespace BarPointOfSaleSystem
 
         private void paybtn_Click(object sender, EventArgs e)
         {
-            int i = 0;
+            int i = 0;                                        // allows you to access the db locally with your connection string
             string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heart\repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
             using (TableSelection getTable = new TableSelection())
             using (StaffLogin staff = new StaffLogin())
-            using (SqlConnection myConnection = new SqlConnection(str))
+            using (SqlConnection myConnection = new SqlConnection(str))  
             using (SqlDataAdapter tables = new SqlDataAdapter($"SELECT * FROM Tables WHERE TableNumber = '{getTable.tble}'", myConnection))
             using (SqlDataAdapter employees = new SqlDataAdapter($"SELECT * FROM Employees WHERE PIN = {staff.pin}", myConnection))
 
@@ -176,6 +176,7 @@ namespace BarPointOfSaleSystem
                 }
 
             }
+            //Calculates your menu bill
             TotalNumberLBL.Text = "$" + "0.00";
             TotalPerBillNumberLBL.Text = "$" + "0.00";
             totalBill = 0;
