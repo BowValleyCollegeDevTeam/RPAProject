@@ -172,7 +172,8 @@ namespace BarPointOfSaleSystem
         //Creates multiple buttons based on the drinks table
         private void GetDrinks()
         {
-            using (SqlConnection myConnection = new SqlConnection(dbConnectionString))
+            string str = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Kara\Source\Repos\RPAProject\BarPointOfSaleSystem\BarPOSSystemData.mdf;Integrated Security=True";
+            using (SqlConnection myConnection = new SqlConnection(str))
             using (SqlDataAdapter menuDrinks = new SqlDataAdapter($"SELECT * FROM Menu WHERE Category = 'Drinks'", myConnection))
             {
                 DataTable getDrinks = new DataTable();
